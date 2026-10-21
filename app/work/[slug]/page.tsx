@@ -220,37 +220,6 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
         </div>
       </section>
 
-      {/* Screenshot slots */}
-      <section
-        aria-labelledby="screenshots-heading"
-        className="border-t border-line bg-elevated py-14 sm:py-16"
-      >
-        <div className="shell">
-          <h2
-            id="screenshots-heading"
-            className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
-          >
-            Project visuals
-          </h2>
-          <div className="mt-8 grid gap-5 sm:grid-cols-2">
-            {[1, 2].map((index) => {
-              const image = project.images?.[index];
-              return (
-                <ProjectImage
-                  key={index}
-                  src={image?.src}
-                  alt={
-                    image?.alt ??
-                    `${project.name} screenshot ${index + 1}`
-                  }
-                  slotHint={`Add public/images/projects/${project.slug}-${index + 1}.png`}
-                />
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
       {/* Status */}
       <section
         aria-labelledby="status-heading"

@@ -66,19 +66,11 @@ export const projects: Project[] = [
     tech: ["React", "Spring Boot", "MySQL", "Gemini AI", "REST APIs"],
     repo: "https://github.com/jahabarjavith111-oss/TXNORYX-AI-Risk-Manager-",
     statusDetails:
-      "Active development. The source repository is public and includes the system architecture and decision-flow diagrams shown below; interface screenshots are being added.",
+      "Active development. The source repository is public.",
     images: [
       {
         src: "/images/projects/txnoryx.png",
         alt: "TXNORYX project cover — autonomous payment risk and recovery intelligence",
-      },
-      {
-        src: "/images/projects/txnoryx-architecture.png",
-        alt: "TXNORYX system architecture diagram from the project repository",
-      },
-      {
-        src: "/images/projects/txnoryx-flow.png",
-        alt: "TXNORYX agent and recovery decision-flow diagram from the project repository",
       },
     ],
   },
