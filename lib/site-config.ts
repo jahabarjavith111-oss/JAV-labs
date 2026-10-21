@@ -3,14 +3,14 @@
  * Edit this file to change details used across the whole website.
  */
 export const siteConfig = {
-  name: "Abdul Javid J.",
-  shortName: "AJ",
-  initials: "AJ",
-  role: "Independent Developer · AI & SaaS Builder",
+  name: "JAV Digital Engineering Studio",
+  shortName: "JAV",
+  initials: "JAV",
+  role: "Digital Engineering Studio · Websites, AI & SaaS",
   tagline: "Building Digital Products. Engineering What's Next.",
 
   description:
-    "Independent full-stack developer building business websites, web applications, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
+    "JAV Digital Engineering Studio — the independent studio of Abdul Javid J., building business websites, web applications, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
 
   /** Verified contact email — used by the contact form fallback and footer. */
   email: "jahabarjavith111@gmail.com",

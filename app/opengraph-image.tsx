@@ -31,19 +31,20 @@ export default function OpengraphImage() {
         >
           <div
             style={{
-              width: 64,
-              height: 64,
-              borderRadius: 14,
+              width: 74,
+              height: 54,
+              borderRadius: 13,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
-              backgroundColor: "#FF5A36",
+              backgroundColor: "#05080d",
               color: "#ffffff",
-              fontSize: 28,
+              fontSize: 24,
               fontWeight: 700,
+              letterSpacing: 1,
             }}
           >
-            AJ
+            JAV
           </div>
           <div
             style={{
@@ -52,10 +53,10 @@ export default function OpengraphImage() {
             }}
           >
             <div style={{ fontSize: 26, color: "#F8FAFC", fontWeight: 600 }}>
-              Abdul Javid J.
+              JAV Digital Engineering Studio
             </div>
             <div style={{ fontSize: 18, color: "#7C879A" }}>
-              Independent Developer · AI &amp; SaaS Builder
+              Abdul Javid J. · Websites, AI &amp; SaaS
             </div>
           </div>
         </div>
@@ -82,7 +83,7 @@ export default function OpengraphImage() {
             style={{
               fontSize: 62,
               fontWeight: 700,
-              color: "#FF5A36",
+              color: "#00C2FD",
               lineHeight: 1.1,
               maxWidth: 960,
               marginTop: 8,
@@ -111,8 +112,8 @@ export default function OpengraphImage() {
             width: 420,
             height: 420,
             borderRadius: 9999,
-            backgroundColor: "#FF5A36",
-            opacity: 0.18,
+            backgroundColor: "#00A8F5",
+            opacity: 0.2,
             filter: "blur(60px)",
             display: "flex",
           }}

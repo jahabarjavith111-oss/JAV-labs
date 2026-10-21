@@ -7,7 +7,7 @@ type Variant = "primary" | "outline" | "light" | "ghost";
 const variants: Record<Variant, string> = {
   /* Accent pill, white label — hover fills with ink */
   primary:
-    "bg-accent text-white hover:bg-fg shadow-[0_12px_28px_-16px_rgba(255,90,54,0.75)]",
+    "bg-accent text-white hover:bg-fg shadow-[0_12px_28px_-16px_rgba(0,105,222,0.75)]",
   /* Outlined pill — hover fills with ink */
   outline: "border border-line-2 text-fg hover:bg-fg hover:text-white",
   /* Outlined pill for dark backgrounds — hover fills with white */

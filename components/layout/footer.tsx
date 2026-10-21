@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { Mail } from "lucide-react";
 import { footerNav, legalNav } from "@/lib/navigation";
 import { featuredServices } from "@/lib/services";
@@ -14,17 +15,23 @@ export async function Footer() {
       <div className="shell grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
         {/* Brand */}
         <div className="sm:col-span-2 lg:col-span-1">
-          <Link href="/" className="flex items-center gap-3">
-            <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-2 font-display text-sm font-bold text-white">
-              {siteConfig.initials}
+          <Link href="/" className="inline-flex flex-col gap-3">
+            <span className="flex h-10 w-[78px] shrink-0 items-center justify-center overflow-hidden rounded-xl bg-black ring-1 ring-line">
+              <Image
+                src="/images/logo-mark.png"
+                alt=""
+                width={66}
+                height={31}
+                className="h-auto w-[66px]"
+              />
             </span>
-            <span className="font-display text-lg font-semibold text-fg">
+            <span className="font-display text-lg font-semibold leading-tight text-fg">
               {siteConfig.name}
             </span>
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-2">
-            Independent developer building websites, full-stack applications,
-            and AI-powered products that help businesses grow.
+            The independent studio of Abdul Javid J. — building business
+            websites, full-stack applications, and AI-powered products.
           </p>
           <div className="mt-5 flex items-center gap-3">
             <a
@@ -127,7 +134,7 @@ export async function Footer() {
       <div className="border-t border-line">
         <div className="shell flex flex-col items-start justify-between gap-3 py-5 sm:flex-row sm:items-center">
           <p className="text-xs text-fg-3">
-            © {year} {siteConfig.name}. All rights reserved.
+            © {year} {siteConfig.name} — Abdul Javid J. All rights reserved.
           </p>
           <ul className="flex items-center gap-4">
             {legalNav.map((item) => (

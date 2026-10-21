@@ -1,11 +1,25 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#FF8A6B" />
-      <stop offset="1" stop-color="#FF5A36" />
+    <linearGradient id="orbit" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#0052C4" />
+      <stop offset="1" stop-color="#00D9FE" />
     </linearGradient>
   </defs>
-  <rect width="64" height="64" rx="14" fill="#102A43" />
-  <rect x="2.5" y="2.5" width="59" height="59" rx="11.5" fill="none" stroke="url(#g)" stroke-width="2" opacity="0.55" />
-  <text x="32" y="42" font-family="Arial, Helvetica, sans-serif" font-size="27" font-weight="700" fill="url(#g)" text-anchor="middle" letter-spacing="1">AJ</text>
+  <rect width="64" height="64" rx="14" fill="#05080d" />
+  <path
+    d="M13 43 Q32 51 53 17"
+    fill="none"
+    stroke="url(#orbit)"
+    stroke-width="4.5"
+    stroke-linecap="round"
+  />
+  <text
+    x="29"
+    y="38"
+    font-family="Segoe UI, Arial, sans-serif"
+    font-size="21"
+    font-weight="700"
+    fill="#ffffff"
+    text-anchor="middle"
+  >JAV</text>
 </svg>

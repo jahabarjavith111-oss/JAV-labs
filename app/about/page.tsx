@@ -171,7 +171,8 @@ export default function AboutPage() {
                 real use.
               </p>
               <p>
-                I work directly with clients — clear communication, honest
+                Through JAV Digital Engineering Studio, I work directly with
+                clients — clear communication, honest
                 scope, and no pretending a project includes everything. If
                 something is outside what I can genuinely deliver, I&apos;ll
                 tell you.

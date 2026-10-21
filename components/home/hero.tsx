@@ -18,11 +18,11 @@ export function Hero() {
     >
       {/* Restrained accent glows on ink */}
       <div
-        className="glow -top-32 -left-24 h-96 w-96 bg-accent"
+        className="glow -top-32 -left-24 h-96 w-96 bg-accent-bright"
         aria-hidden="true"
       />
       <div
-        className="glow top-10 right-0 h-80 w-80 bg-accent-2"
+        className="glow top-10 right-0 h-80 w-80 bg-accent-bright/60"
         aria-hidden="true"
       />
 
@@ -30,8 +30,11 @@ export function Hero() {
         {/* Copy */}
         <div className="lg:col-span-3">
           <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
-            <Sparkles className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
-            Independent Developer · AI &amp; SaaS Builder
+            <Sparkles
+              className="h-3.5 w-3.5 text-accent-bright"
+              aria-hidden="true"
+            />
+            JAV Digital Engineering Studio
           </p>
 
           <h1
@@ -39,7 +42,7 @@ export function Hero() {
             className="font-display text-[clamp(40px,6vw,84px)] font-bold leading-[1.04] tracking-[-0.03em] text-balance"
           >
             I Build Websites, Web Applications, and AI Products That{" "}
-            <span className="serif-accent text-accent">
+            <span className="serif-accent text-accent-bright">
               Help Businesses Grow
             </span>
             .

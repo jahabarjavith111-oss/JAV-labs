@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Design tokens — professional light theme
-   surface #fbfaf7 · ink #102a43 · accent #ff5a36
+   Design tokens — JAV Digital Engineering Studio
+   surface #fbfaf7 · ink #102a43 · accent azure (logo blue)
    --------------------------------------------------------------- */
 @theme {
   /* Surfaces */
@@ -15,9 +15,11 @@
   --color-fg-2: #5f6c7e;
   --color-fg-3: #7c8798;
 
-  /* Accents */
-  --color-accent: #ff5a36;
-  --color-accent-2: #e94b2d;
+  /* Accents — sampled from the JAV logo swoosh */
+  --color-accent: #0069de;
+  --color-accent-2: #0052c4;
+  /* Vivid logo cyan — for accent text on ink/navy surfaces */
+  --color-accent-bright: #00c2fd;
 
   /* Borders */
   --color-line: #e2e4e7;

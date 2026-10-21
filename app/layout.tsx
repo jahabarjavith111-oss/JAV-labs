@@ -40,11 +40,12 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.siteUrl),
   title: {
-    default: `${siteConfig.name} — Independent Developer · AI & SaaS Builder`,
+    default: `${siteConfig.name} — Websites, AI & SaaS Products`,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
+    "digital engineering studio",
     "freelance developer",
     "full-stack developer",
     "web applications",
@@ -56,13 +57,13 @@ export const metadata: Metadata = {
     type: "website",
     url: siteConfig.siteUrl,
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Independent Developer · AI & SaaS Builder`,
+    title: `${siteConfig.name} — Websites, AI & SaaS Products`,
     description: siteConfig.description,
     locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Independent Developer · AI & SaaS Builder`,
+    title: `${siteConfig.name} — Websites, AI & SaaS Products`,
     description: siteConfig.description,
   },
   robots: {

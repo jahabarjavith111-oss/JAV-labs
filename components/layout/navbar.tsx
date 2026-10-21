@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -46,15 +47,22 @@ export function Navbar() {
             className="group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2"
             aria-label={`${siteConfig.name} — home`}
           >
-            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-2 font-display text-xs font-bold text-white">
-              {siteConfig.initials}
+            <span className="flex h-9 w-[72px] shrink-0 items-center justify-center overflow-hidden rounded-[11px] bg-black ring-1 ring-line">
+              <Image
+                src="/images/logo-mark.png"
+                alt=""
+                width={62}
+                height={29}
+                priority
+                className="h-auto w-[62px]"
+              />
             </span>
             <span className="hidden flex-col leading-tight sm:flex">
-              <span className="text-sm font-semibold tracking-tight text-fg">
-                {siteConfig.name}
+              <span className="font-display text-sm font-semibold tracking-tight text-fg">
+                {siteConfig.shortName}
               </span>
               <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-fg-3">
-                Independent Developer
+                Digital Engineering Studio
               </span>
             </span>
           </Link>
