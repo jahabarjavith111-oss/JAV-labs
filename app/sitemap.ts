@@ -4,6 +4,8 @@ import { projects } from "@/lib/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = siteConfig.siteUrl;
+  // Sitemaps require absolute URLs — emit nothing until a domain is set.
+  if (!base) return [];
 
   const staticRoutes = [
     { path: "", priority: 1, changeFrequency: "monthly" as const },

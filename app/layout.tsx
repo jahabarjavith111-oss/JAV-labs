@@ -38,7 +38,9 @@ const plexMono = IBM_Plex_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
+  ...(siteConfig.siteUrl
+    ? { metadataBase: new URL(siteConfig.siteUrl) }
+    : {}),
   title: {
     default: `${siteConfig.name} — Websites, AI & SaaS Products`,
     template: `%s — ${siteConfig.name}`,
@@ -55,7 +57,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     type: "website",
-    url: siteConfig.siteUrl,
+    ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
     siteName: siteConfig.name,
     title: `${siteConfig.name} — Websites, AI & SaaS Products`,
     description: siteConfig.description,

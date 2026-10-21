@@ -72,8 +72,7 @@ ${bodyHtml}
                   <tr>
                     <td style="border-top:1px solid ${LINE};padding-top:18px;font-size:12.5px;color:${MUTED};line-height:1.7;">
                       <strong style="color:${BRAND};">JAV Digital Engineering Studio</strong> · Independent Software Developer<br />
-                      <a href="${siteConfig.siteUrl}" style="color:${ACCENT};text-decoration:none;">${siteConfig.siteUrl}</a>
-                      · <a href="mailto:${siteConfig.email}" style="color:${ACCENT};text-decoration:none;">${siteConfig.email}</a><br />
+                      <a href="mailto:${siteConfig.email}" style="color:${ACCENT};text-decoration:none;">${siteConfig.email}</a><br />
                       This email was sent by the JAV website contact form.
                     </td>
                   </tr>
@@ -153,7 +152,6 @@ ${sectionLabel("Next Steps")}
     "Best regards,",
     "JAV Website Notification System",
     "Independent Software Developer",
-    siteConfig.siteUrl,
   ].join("\n");
 
   return { subject, html, text };
@@ -178,7 +176,6 @@ ${sectionLabel("Here's a quick summary of your inquiry")}
                 <p style="margin:26px 0 0 0;">If there's anything else you'd like to share about your project, feel free to reply directly to this email.</p>
                 <p style="margin:18px 0 0 0;">I'm looking forward to learning more about your idea and exploring how I can help bring it to life.</p>
                 <p style="margin:18px 0 0 0;">Best regards,<br /><strong>JAV</strong><br />Independent Software Developer<br />
-                  <a href="${siteConfig.siteUrl}" style="color:${ACCENT};text-decoration:none;">${siteConfig.siteUrl}</a><br />
                   <a href="mailto:${siteConfig.email}" style="color:${ACCENT};text-decoration:none;">${siteConfig.email}</a>
                 </p>
   `);
@@ -206,7 +203,6 @@ ${sectionLabel("Here's a quick summary of your inquiry")}
     "Best regards,",
     "JAV",
     "Independent Software Developer",
-    siteConfig.siteUrl,
     siteConfig.email,
   ].join("\n");
 
