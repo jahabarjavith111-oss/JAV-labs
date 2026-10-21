@@ -141,9 +141,9 @@ export default function AboutPage() {
         <div className="shell grid gap-10 lg:grid-cols-5 lg:gap-14">
           <div className="lg:col-span-2">
             <ProjectImage
-              slotHint="Add your photo at public/images/photo.jpg — it will appear here automatically."
+              src="/images/photo.jpg"
               alt="Portrait of Abdul Javid J."
-              className="aspect-square !rounded-2xl"
+              className="aspect-[4/5] !rounded-2xl"
             />
           </div>
           <div className="lg:col-span-3">
