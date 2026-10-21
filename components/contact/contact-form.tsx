@@ -7,7 +7,6 @@ import {
   budgetOptions,
   buildMailtoLink,
   projectTypes,
-  timelines,
   validateContactForm,
   type ContactFormData,
   type FieldErrors,
@@ -303,26 +302,30 @@ export function ContactForm() {
           <label htmlFor="timeline" className={labelClass}>
             Desired timeline <span className="text-accent-2">*</span>
           </label>
-          <select
+          <input
             id="timeline"
+            type="text"
             value={form.timeline}
             onChange={(event) => update("timeline", event.target.value)}
+            placeholder="e.g. 4 – 6 weeks, or live before December"
+            maxLength={120}
+            autoComplete="off"
             aria-invalid={Boolean(errors.timeline)}
-            aria-describedby={errors.timeline ? "timeline-error" : undefined}
+            aria-describedby={
+              errors.timeline ? "timeline-error" : "timeline-help"
+            }
             className={`${inputClass} ${errorClass(Boolean(errors.timeline))}`}
-          >
-            <option value="">Select a timeline</option>
-            {timelines.map((range) => (
-              <option key={range} value={range}>
-                {range}
-              </option>
-            ))}
-          </select>
+          />
           {errors.timeline ? (
             <p id="timeline-error" className="mt-1.5 text-xs text-red-600">
               {errors.timeline}
             </p>
-          ) : null}
+          ) : (
+            <p id="timeline-help" className="mt-1.5 text-xs text-fg-3">
+              Type your own window — exact dates are confirmed together during
+              scoping.
+            </p>
+          )}
         </div>
 
         {/* Message */}

@@ -77,7 +77,7 @@ export async function POST(request: Request) {
       country: data.country.trim(),
       projectType: data.projectType,
       budget: data.budget,
-      timeline: data.timeline,
+      timeline: data.timeline.trim(),
       message: data.message.trim(),
     };
 

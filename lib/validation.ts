@@ -28,14 +28,6 @@ export const budgetOptions = [
   "Not sure yet",
 ] as const;
 
-export const timelines = [
-  "As soon as possible",
-  "2 – 4 weeks",
-  "1 – 2 months",
-  "2 – 3 months",
-  "Flexible / not sure yet",
-] as const;
-
 export type ContactFormData = {
   name: string;
   email: string;
@@ -79,8 +71,10 @@ export function validateContactForm(data: ContactFormData): FieldErrors {
     errors.budget = "Please choose an option.";
   }
 
-  if (!data.timeline) {
-    errors.timeline = "Please choose a timeline.";
+  if (!data.timeline.trim()) {
+    errors.timeline = "Please enter your desired timeline.";
+  } else if (data.timeline.trim().length > 120) {
+    errors.timeline = "That timeline looks too long — keep it under 120 characters.";
   }
 
   if (!data.message.trim()) {
