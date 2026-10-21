@@ -40,6 +40,8 @@ export type ContactFormData = {
   name: string;
   email: string;
   company: string;
+  /** Optional — collected for the notification email. */
+  country: string;
   projectType: string;
   budget: string;
   timeline: string;
@@ -105,6 +107,7 @@ export function buildMailtoLink(data: ContactFormData): string {
       `Name: ${data.name}`,
       `Email: ${data.email}`,
       data.company ? `Company / project: ${data.company}` : null,
+      data.country ? `Country: ${data.country}` : null,
       `Project type: ${data.projectType}`,
       `Budget: ${data.budget}`,
       `Timeline: ${data.timeline}`,

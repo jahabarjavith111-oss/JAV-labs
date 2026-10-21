@@ -1,17 +1,23 @@
+import nodemailer from "nodemailer";
+import { siteConfig } from "@/lib/site-config";
+import {
+  clientReplyEmail,
+  logoAttachment,
+  ownerNotificationEmail,
+} from "@/lib/email-templates";
 import {
   validateContactForm,
   type ContactFormData,
 } from "@/lib/validation";
 
-const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
-
 /**
- * Contact form endpoint.
+ * Contact form endpoint — sends mail over Gmail SMTP (Google App Password).
  *
  * Behavior:
  *  - validates input server-side (in addition to client validation)
  *  - silently accepts honeypot submissions (bot trap)
- *  - forwards to Web3Forms when WEB3FORMS_ACCESS_KEY is configured
+ *  - emails the studio a full notification AND auto-replies to the client
+ *    when SMTP_PASS is configured
  *  - returns `configured: false` when it is not, so the client can show
  *    an honest fallback instead of pretending the message was sent
  */
@@ -24,6 +30,7 @@ export async function POST(request: Request) {
       name: String(body.name ?? ""),
       email: String(body.email ?? ""),
       company: String(body.company ?? ""),
+      country: String(body.country ?? ""),
       projectType: String(body.projectType ?? ""),
       budget: String(body.budget ?? ""),
       timeline: String(body.timeline ?? ""),
@@ -45,38 +52,60 @@ export async function POST(request: Request) {
     return Response.json({ ok: false, errors }, { status: 400 });
   }
 
-  const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
-  if (!accessKey) {
+  const smtpUser = process.env.SMTP_USER ?? siteConfig.email;
+  const smtpPass = process.env.SMTP_PASS;
+  const smtpPort = Number(process.env.SMTP_PORT ?? 465);
+
+  if (!smtpPass) {
     return Response.json({ ok: false, configured: false });
   }
 
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST ?? "smtp.gmail.com",
+    port: smtpPort,
+    secure: smtpPort === 465,
+    auth: { user: smtpUser, pass: smtpPass },
+  });
+
+  const from = `"JAV Digital Engineering Studio" <${smtpUser}>`;
+
   try {
-    const response = await fetch(WEB3FORMS_ENDPOINT, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        access_key: accessKey,
-        subject: `New project inquiry — ${data.projectType} — ${data.name}`,
-        from_name: "Portfolio website",
-        name: data.name,
-        email: data.email,
-        company: data.company,
-        project_type: data.projectType,
-        budget: data.budget,
-        timeline: data.timeline,
-        message: data.message,
-        reference: data.reference,
-        page: "/contact",
-      }),
+    const inquiry = {
+      name: data.name.trim(),
+      email: data.email.trim(),
+      company: data.company.trim(),
+      country: data.country.trim(),
+      projectType: data.projectType,
+      budget: data.budget,
+      timeline: data.timeline,
+      message: data.message.trim(),
+    };
+
+    // 1. Notification to the studio — reply-to goes straight to the client.
+    const notification = ownerNotificationEmail(inquiry);
+    await transporter.sendMail({
+      from,
+      to: process.env.CONTACT_NOTIFY_EMAIL ?? siteConfig.email,
+      replyTo: { name: inquiry.name, address: inquiry.email },
+      subject: notification.subject,
+      html: notification.html,
+      text: notification.text,
+      attachments: [logoAttachment],
     });
 
-    if (!response.ok) {
-      return Response.json({ ok: false }, { status: 502 });
-    }
-
-    const result = (await response.json()) as { success?: boolean };
-    if (!result.success) {
-      return Response.json({ ok: false }, { status: 502 });
+    // 2. Auto-reply to the client — best effort; the inquiry is already saved.
+    try {
+      const reply = clientReplyEmail(inquiry);
+      await transporter.sendMail({
+        from,
+        to: inquiry.email,
+        subject: reply.subject,
+        html: reply.html,
+        text: reply.text,
+        attachments: [logoAttachment],
+      });
+    } catch {
+      // Notification delivered; client reply can fail without failing the form.
     }
 
     return Response.json({ ok: true });

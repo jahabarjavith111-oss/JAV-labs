@@ -19,6 +19,7 @@ const emptyForm: ContactFormData = {
   name: "",
   email: "",
   company: "",
+  country: "",
   projectType: "",
   budget: "",
   timeline: "",
@@ -203,8 +204,8 @@ export function ContactForm() {
           ) : null}
         </div>
 
-        {/* Company */}
-        <div className="sm:col-span-2">
+        {/* Company / Country */}
+        <div className="sm:col-span-1">
           <label htmlFor="company" className={labelClass}>
             Company or project name{" "}
             <span className="text-fg-3">(optional)</span>
@@ -216,6 +217,20 @@ export function ContactForm() {
             placeholder="Acme Inc."
             value={form.company}
             onChange={(event) => update("company", event.target.value)}
+            className={inputClass}
+          />
+        </div>
+        <div className="sm:col-span-1">
+          <label htmlFor="country" className={labelClass}>
+            Country <span className="text-fg-3">(optional)</span>
+          </label>
+          <input
+            id="country"
+            type="text"
+            autoComplete="country-name"
+            placeholder="United States"
+            value={form.country}
+            onChange={(event) => update("country", event.target.value)}
             className={inputClass}
           />
         </div>
@@ -369,7 +384,7 @@ export function ContactForm() {
           <p className="mt-1.5 text-sm text-amber-800">
             Please email directly instead, or configure{" "}
             <code className="rounded bg-amber-500/15 px-1">
-              WEB3FORMS_ACCESS_KEY
+              SMTP_PASS
             </code>{" "}
             (see the README).
           </p>

@@ -10,7 +10,7 @@ Premium, conversion-focused personal website for **Abdul Javid J.** — independ
 - **Tailwind CSS v4** (design tokens in `app/globals.css`)
 - **lucide-react** icons (+ inline SVGs for brand marks)
 - Fonts: **Inter** + **Space Grotesk** via `next/font` (self-hosted)
-- **Web3Forms** for contact delivery (free tier)
+- **Gmail SMTP** via **nodemailer** (Google App Password) for contact delivery — free
 - No database, no authentication, no paid dependencies
 
 ## Run locally
@@ -35,7 +35,7 @@ All editable content lives in `lib/`:
 
 | File | Controls |
 |---|---|
-| `lib/site-config.ts` | Name, role, tagline, **email**, GitHub/LinkedIn links, **site URL** |
+| `lib/site-config.ts` | Name, role, tagline, **email**, LinkedIn link, **site URL** |
 | `lib/navigation.ts` | Header + footer links |
 | `lib/services.ts` | All service descriptions (homepage previews the first 4) |
 | `lib/projects.ts` | The 3 case studies: TXNORYX, VERIDEX, CiVIQ |
@@ -46,19 +46,31 @@ All editable content lives in `lib/`:
 ### Environment variables (`.env.local`)
 
 ```bash
-WEB3FORMS_ACCESS_KEY=     # free key from https://web3forms.com
-NEXT_PUBLIC_SITE_URL=     # e.g. https://your-domain.com (no trailing slash)
+SMTP_HOST=smtp.gmail.com
+SMTP_PORT=465
+SMTP_USER=jav.digitalstudio2026@gmail.com
+SMTP_PASS=               # 16-character Google App Password
+CONTACT_NOTIFY_EMAIL=jav.digitalstudio2026@gmail.com
+NEXT_PUBLIC_SITE_URL=    # e.g. https://your-domain.com (no trailing slash)
 ```
 
-> ⚠️ Until `WEB3FORMS_ACCESS_KEY` is set, the contact form honestly tells the visitor the message was **not** sent and offers a prefilled `mailto:` fallback. It never fakes success.
+> ⚠️ Until `SMTP_PASS` is set, the contact form honestly tells the visitor the message was **not** sent and offers a prefilled `mailto:` fallback. It never fakes success.
 
-## Contact form setup (Web3Forms)
+## Contact form setup (Gmail SMTP)
 
-1. Visit <https://web3forms.com> and create a **free** access key using `jav.digitalstudio2026@gmail.com`.
-2. Put it in `.env.local` locally, and in your hosting provider's environment settings in production.
-3. Test a real submission from a device before announcing the site.
+Every submission sends **two emails** (JAV logo embedded in both):
 
-The API key is only read server-side in `app/api/contact/route.ts`. Spam is mitigated with a honeypot field + server-side validation.
+1. **Notification to you** — full client details and message, with reply-to set to the client so you can answer with one click.
+2. **Automatic reply to the client** — thank-you email with a summary of their inquiry.
+
+Setup:
+
+1. Enable **2-Step Verification** on the Google account `jav.digitalstudio2026@gmail.com`.
+2. Create a **Google App Password** at <https://myaccount.google.com/apppasswords> (name it, e.g., "portfolio website").
+3. Put the 16-character password in `.env.local` locally, and in your hosting provider's environment settings in production (never commit it — `.env*` is gitignored).
+4. Test a real submission from a device before announcing the site.
+
+The password is only read server-side in `app/api/contact/route.ts`. Spam is mitigated with a honeypot field + server-side validation.
 
 ## Deploy (free)
 
@@ -89,7 +101,7 @@ app/
   work/page.tsx            # Portfolio grid
   work/[slug]/page.tsx     # Case studies: txnoryx | veridex | civiq
   about/page.tsx           # Story, experience, technical capabilities
-  contact/page.tsx         # Project inquiry (Web3Forms)
+  contact/page.tsx         # Project inquiry (Gmail SMTP)
   privacy/page.tsx         # Privacy policy
   terms/page.tsx           # Terms & conditions
   not-found.tsx            # 404
@@ -124,7 +136,7 @@ Until then, every image area shows an honest, clearly labeled slot — no fake s
 
 ## Before you publish — checklist
 
-- [ ] Create the Web3Forms key and test a real form submission
+- [ ] Create the Google App Password and test a real form submission
 - [ ] Replace/confirm the contact email in `lib/site-config.ts`
 - [ ] Set `NEXT_PUBLIC_SITE_URL` for the final domain
 - [ ] Add real screenshots for TXNORYX, VERIDEX, CiVIQ
