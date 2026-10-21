@@ -53,10 +53,10 @@ function layout(bodyHtml: string): string {
       <tr>
         <td align="center">
           <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;background-color:#ffffff;border-radius:14px;overflow:hidden;border:1px solid ${LINE};">
-            <!-- Header with logo -->
+            <!-- Header with logo — full-bleed banner, edge to edge -->
             <tr>
-              <td style="background-color:${BRAND};padding:26px 32px;text-align:center;">
-                <img src="cid:jav-logo@jav.digital" alt="JAV Digital Engineering Studio" width="220" style="display:block;margin:0 auto;width:220px;height:auto;border-radius:8px;" />
+              <td style="background-color:#000000;padding:0;text-align:center;">
+                <img src="cid:jav-logo@jav.digital" alt="JAV Digital Engineering Studio" width="600" height="301" style="display:block;margin:0 auto;width:100%;max-width:600px;height:auto;border:0;" />
               </td>
             </tr>
             <!-- Body -->
@@ -213,9 +213,10 @@ ${sectionLabel("Here's a quick summary of your inquiry")}
   return { subject, html, text };
 }
 
-/** Inline logo attachment shared by both emails. */
+/** Inline logo attachment shared by both emails (cropped to content, black bg matching the header). */
 export const logoAttachment = {
-  filename: "jav-digital-engineering-studio.png",
-  path: path.join(process.cwd(), "public", "images", "logo-full.png"),
+  filename: "jav-logo.png",
+  path: path.join(process.cwd(), "public", "images", "logo-email.png"),
   cid: "jav-logo@jav.digital",
+  contentDisposition: "inline",
 } as const;
