@@ -87,7 +87,7 @@ export function Hero() {
 
       {/* Soft transition into the page surface */}
       <div
-        className="pointer-events-none absolute inset-x-0 bottom-0 z-[2] h-20 bg-[linear-gradient(to_bottom,transparent,var(--color-base))] lg:h-28"
+        className="pointer-events-none absolute inset-x-0 bottom-0 z-[4] h-20 bg-[linear-gradient(to_bottom,transparent,var(--color-base))] lg:h-28"
         aria-hidden="true"
       />
     </section>
