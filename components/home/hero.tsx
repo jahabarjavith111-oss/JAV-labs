@@ -24,9 +24,9 @@ export function Hero() {
         aria-hidden="true"
       />
 
-      <div className="shell relative z-[3] grid items-center gap-12 pt-[120px] pb-24 sm:pt-[144px] sm:pb-28 lg:grid-cols-5 lg:gap-10 lg:pb-36">
+      <div className="shell relative z-[3] pt-[120px] pb-16 sm:pt-[144px] sm:pb-20 lg:pb-36">
         {/* Copy */}
-        <div className="lg:col-span-3">
+        <div className="lg:max-w-[54%]">
           <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
             <Sparkles
               className="h-3.5 w-3.5 text-accent-bright"
@@ -37,7 +37,7 @@ export function Hero() {
 
           <h1
             id="hero-heading"
-            className="font-display text-[clamp(40px,6vw,84px)] font-bold leading-[1.04] tracking-[-0.03em] text-balance"
+            className="font-display text-[clamp(38px,4.4vw,62px)] font-bold leading-[1.06] tracking-[-0.03em] text-balance"
           >
             I Build Websites, Web Applications, and AI Products That{" "}
             <span className="serif-accent text-accent-bright">
@@ -64,21 +64,24 @@ export function Hero() {
           </p>
         </div>
 
-        {/* Showreel — replaces the old selected-work panel */}
-        <div className="lg:col-span-2">
-          <div className="overflow-hidden rounded-[18px] border border-white/15 bg-black shadow-[0_30px_70px_-36px_rgba(0,0,0,0.7)]">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              preload="metadata"
-              aria-label="JAV Digital Engineering Studio showreel"
-              className="h-auto w-full"
-            >
-              <source src="/videos/hero-showreel.mp4" type="video/mp4" />
-            </video>
-          </div>
+        {/* Showreel — inline card on mobile, full-height right panel on desktop */}
+        <div className="relative mt-12 overflow-hidden rounded-[18px] border border-white/15 bg-black shadow-[0_30px_70px_-36px_rgba(0,0,0,0.7)] lg:absolute lg:inset-y-0 lg:left-[54%] lg:right-[calc(50%_-_50vw)] lg:z-[1] lg:mt-0 lg:rounded-none lg:border-0 lg:shadow-none">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
+            aria-label="JAV Digital Engineering Studio showreel"
+            className="h-auto w-full object-cover lg:h-full"
+          >
+            <source src="/videos/hero-showreel.mp4" type="video/mp4" />
+          </video>
+          {/* Soft fade where the video meets the ink band */}
+          <div
+            className="absolute inset-y-0 left-0 hidden w-28 bg-gradient-to-r from-[var(--color-fg)] via-[var(--color-fg)]/70 to-transparent lg:block"
+            aria-hidden="true"
+          />
         </div>
       </div>
 
