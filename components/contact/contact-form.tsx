@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { ArrowUpRight, Check, CircleAlert, Loader2 } from "lucide-react";
 import {
-  budgetRanges,
+  budgetOptions,
   buildMailtoLink,
   projectTypes,
   timelines,
@@ -249,23 +249,25 @@ export function ContactForm() {
           ) : null}
         </div>
 
-        {/* Budget */}
+        {/* Budget / project size */}
         <div>
           <label htmlFor="budget" className={labelClass}>
-            Approximate budget <span className="text-accent-2">*</span>
+            Project size &amp; budget <span className="text-accent-2">*</span>
           </label>
           <select
             id="budget"
             value={form.budget}
             onChange={(event) => update("budget", event.target.value)}
             aria-invalid={Boolean(errors.budget)}
-            aria-describedby={errors.budget ? "budget-error" : undefined}
+            aria-describedby={
+              errors.budget ? "budget-error" : "budget-help"
+            }
             className={`${inputClass} ${errorClass(Boolean(errors.budget))}`}
           >
-            <option value="">Select a budget range</option>
-            {budgetRanges.map((range) => (
-              <option key={range} value={range}>
-                {range}
+            <option value="">Select an option</option>
+            {budgetOptions.map((option) => (
+              <option key={option} value={option}>
+                {option}
               </option>
             ))}
           </select>
@@ -273,7 +275,12 @@ export function ContactForm() {
             <p id="budget-error" className="mt-1.5 text-xs text-red-400">
               {errors.budget}
             </p>
-          ) : null}
+          ) : (
+            <p id="budget-help" className="mt-1.5 text-xs text-fg-3">
+              Projects start at $450 USD — every project is quoted
+              individually, and the final cost differs with scope.
+            </p>
+          )}
         </div>
 
         {/* Timeline */}

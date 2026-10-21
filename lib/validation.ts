@@ -15,12 +15,16 @@ export const projectTypes = [
   "Other",
 ] as const;
 
-export const budgetRanges = [
-  "Under $250",
-  "$250 – $500",
-  "$500 – $1,000",
-  "$1,000 – $2,500",
-  "$2,500+",
+/**
+ * Budget options — project-size based, no fixed price ranges.
+ * Pricing starts at $450 USD and is quoted per project.
+ */
+export const budgetOptions = [
+  "Small professional website (from $450 USD)",
+  "Business website / landing page",
+  "Web application",
+  "SaaS MVP / startup product",
+  "AI-powered product",
   "Not sure yet",
 ] as const;
 
@@ -70,7 +74,7 @@ export function validateContactForm(data: ContactFormData): FieldErrors {
   }
 
   if (!data.budget) {
-    errors.budget = "Please choose a budget range.";
+    errors.budget = "Please choose an option.";
   }
 
   if (!data.timeline) {
