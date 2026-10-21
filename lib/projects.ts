@@ -66,7 +66,21 @@ export const projects: Project[] = [
     tech: ["React", "Spring Boot", "MySQL", "Gemini AI", "REST APIs"],
     repo: "https://github.com/jahabarjavith111-oss/TXNORYX-AI-Risk-Manager-",
     statusDetails:
-      "Active development. The source repository is public, and the features described here reflect the platform's current design and implementation. Screenshots are being added.",
+      "Active development. The source repository is public and includes the system architecture and decision-flow diagrams shown below; interface screenshots are being added.",
+    images: [
+      {
+        src: "/images/projects/txnoryx.png",
+        alt: "TXNORYX project cover — autonomous payment risk and recovery intelligence",
+      },
+      {
+        src: "/images/projects/txnoryx-architecture.png",
+        alt: "TXNORYX system architecture diagram from the project repository",
+      },
+      {
+        src: "/images/projects/txnoryx-flow.png",
+        alt: "TXNORYX agent and recovery decision-flow diagram from the project repository",
+      },
+    ],
   },
   {
     slug: "veridex",
@@ -100,6 +114,12 @@ export const projects: Project[] = [
     tech: ["Blockchain", "Decentralized Identity (DID)", "Smart Contracts", "RBAC"],
     statusDetails:
       "Presented as a showcase project. No public demo or source repository is available at the moment — get in touch if you would like a walkthrough of the concept and architecture.",
+    images: [
+      {
+        src: "/images/projects/veridex.png",
+        alt: "VERIDEX project cover — blockchain-powered digital trust and asset governance",
+      },
+    ],
   },
   {
     slug: "civiq",
@@ -144,6 +164,12 @@ export const projects: Project[] = [
     repo: "https://github.com/jahabarjavith111-oss/CiVIQ-Intelligence-",
     statusDetails:
       "Active development, currently at MVP stage: the core backend API is implemented against the frontend contract, while 3D IFC import, PDF export, and some realtime features are still being completed. The repository is public.",
+    images: [
+      {
+        src: "/images/projects/civiq.png",
+        alt: "CiVIQ project cover — construction intelligence platform",
+      },
+    ],
   },
 ];
 

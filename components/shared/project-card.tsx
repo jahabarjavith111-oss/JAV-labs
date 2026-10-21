@@ -12,9 +12,9 @@ export function ProjectCard({ project }: { project: Project }) {
       <div className="p-5 pb-0">
         <ProjectImage
           src={image?.src}
-          alt={image?.alt ?? `${project.name} interface`}
+          alt={image?.alt ?? `${project.name} project cover`}
           slotHint={`Add a screenshot at public/images/projects/${project.slug}.png`}
-          className="!rounded-lg"
+          className="aspect-video !rounded-lg"
         />
       </div>
 

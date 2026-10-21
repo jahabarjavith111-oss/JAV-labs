@@ -230,7 +230,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
             id="screenshots-heading"
             className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
           >
-            Interface
+            Project visuals
           </h2>
           <div className="mt-8 grid gap-5 sm:grid-cols-2">
             {[1, 2].map((index) => {
