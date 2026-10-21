@@ -1,4 +1,4 @@
-import { ArrowUpRight, Check } from "lucide-react";
+import { Check } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 import { pricing } from "@/lib/pricing";
 
@@ -42,7 +42,6 @@ export function Pricing() {
           <div className="mt-8 flex flex-col items-center gap-4">
             <ButtonLink href="/contact">
               Get a Custom Quote
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </ButtonLink>
             <p className="max-w-md text-xs leading-relaxed text-fg-3">
               {pricing.note}

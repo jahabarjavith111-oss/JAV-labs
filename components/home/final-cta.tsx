@@ -1,4 +1,3 @@
-import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 
 /** Closing call to action shared across sections. */
@@ -16,9 +15,10 @@ export function FinalCta() {
       <div className="shell relative text-center">
         <h2
           id="cta-heading"
-          className="mx-auto max-w-2xl font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl"
+          className="mx-auto max-w-2xl font-display text-[clamp(32px,4.4vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-balance text-fg"
         >
-          Have an Idea? <span className="text-gradient">Let&apos;s Build It.</span>
+          Have an Idea?{" "}
+          <span className="serif-accent text-accent">Let&apos;s Build It.</span>
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-fg-2">
           Tell me what you&apos;re trying to build, the problem you&apos;re
@@ -26,13 +26,9 @@ export function FinalCta() {
           requirements and discuss the next steps.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <ButtonLink href="/contact">
-            Start a Project
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </ButtonLink>
+          <ButtonLink href="/contact">Start a Project</ButtonLink>
           <ButtonLink href="/work" variant="outline">
             Explore My Work
-            <ArrowRight className="h-4 w-4" aria-hidden="true" />
           </ButtonLink>
         </div>
       </div>

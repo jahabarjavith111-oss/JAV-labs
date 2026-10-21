@@ -1,13 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import {
-  ArrowLeft,
-  ArrowUpRight,
-  Check,
-  ExternalLink,
-  MessagesSquare,
-} from "lucide-react";
+import { ArrowLeft, Check, ExternalLink, MessagesSquare } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 import { ProjectImage } from "@/components/shared/project-image";
 import { GithubIcon } from "@/components/shared/social-icons";
@@ -51,7 +45,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
           className="glow -top-24 right-0 h-72 w-72 bg-accent"
           aria-hidden="true"
         />
-        <div className="shell relative py-12 sm:py-16">
+        <div className="shell relative pt-[124px] pb-12 sm:pt-[148px] sm:pb-16">
           <Link
             href="/work"
             className="inline-flex items-center gap-1.5 text-sm text-fg-2 transition-colors hover:text-fg"
@@ -293,10 +287,7 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
               next steps.
             </p>
           </div>
-          <ButtonLink href="/contact">
-            Start a Project
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-          </ButtonLink>
+          <ButtonLink href="/contact">Start a Project</ButtonLink>
         </div>
       </section>
     </>

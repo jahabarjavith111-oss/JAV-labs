@@ -57,7 +57,7 @@ export async function Footer() {
 
         {/* Site links */}
         <nav aria-label="Footer navigation">
-          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-fg-3">
+          <h2 className="label-mono mb-4 text-fg-2">
             Site
           </h2>
           <ul className="space-y-2.5">
@@ -76,7 +76,7 @@ export async function Footer() {
 
         {/* Services links */}
         <nav aria-label="Services">
-          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-fg-3">
+          <h2 className="label-mono mb-4 text-fg-2">
             Services
           </h2>
           <ul className="space-y-2.5">
@@ -103,7 +103,7 @@ export async function Footer() {
 
         {/* Contact */}
         <div>
-          <h2 className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-fg-3">
+          <h2 className="label-mono mb-4 text-fg-2">
             Contact
           </h2>
           <a

@@ -23,11 +23,9 @@ export function SectionHeading({
       className={`max-w-2xl ${centered ? "mx-auto text-center" : ""} ${className}`}
     >
       {eyebrow ? (
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent-2">
-          {eyebrow}
-        </p>
+        <p className="label-mono mb-3.5 text-accent-2">{eyebrow}</p>
       ) : null}
-      <h2 className="font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl">
+      <h2 className="font-display text-3xl font-bold tracking-[-0.03em] text-balance text-fg sm:text-4xl">
         {title}
       </h2>
       {description ? (

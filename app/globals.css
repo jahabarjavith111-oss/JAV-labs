@@ -1,38 +1,41 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Design tokens — premium dark theme
+   Design tokens — professional light theme
+   surface #fbfaf7 · ink #102a43 · accent #ff5a36
    --------------------------------------------------------------- */
 @theme {
   /* Surfaces */
-  --color-base: #0a0d14;
-  --color-elevated: #111622;
-  --color-card: #141925;
+  --color-base: #fbfaf7;
+  --color-elevated: #f4f2ec;
+  --color-card: #ffffff;
 
   /* Text */
-  --color-fg: #f8fafc;
-  --color-fg-2: #a8b3c7;
-  --color-fg-3: #7c879a;
+  --color-fg: #102a43;
+  --color-fg-2: #5f6c7e;
+  --color-fg-3: #7c8798;
 
   /* Accents */
-  --color-accent: #8b5cf6;
-  --color-accent-2: #22d3ee;
+  --color-accent: #ff5a36;
+  --color-accent-2: #e94b2d;
 
   /* Borders */
-  --color-line: #1e2740;
-  --color-line-2: #2b3651;
+  --color-line: #e2e4e7;
+  --color-line-2: #c9ccd1;
 }
 
 @theme inline {
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-  --font-display: var(--font-space-grotesk), var(--font-inter), ui-sans-serif,
-    sans-serif;
+  --font-display: var(--font-sora), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-serif: var(--font-instrument), Georgia, "Times New Roman", serif;
+  --font-mono: var(--font-plex-mono), ui-monospace, SFMono-Regular, monospace;
 }
 
 @layer base {
   html {
+    color-scheme: light;
     scroll-behavior: smooth;
-    scroll-padding-top: 5.5rem;
+    scroll-padding-top: 6.5rem;
   }
 
   body {
@@ -43,7 +46,7 @@
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-accent) 40%, transparent);
+    background-color: color-mix(in srgb, var(--color-accent) 24%, transparent);
     color: var(--color-fg);
   }
 
@@ -69,23 +72,40 @@
     }
   }
 
-  /* Standard surface */
+  /* Standard surface — white card, hairline border, 18px radius */
   .card {
     background-color: var(--color-card);
     border: 1px solid var(--color-line);
-    border-radius: 1rem;
+    border-radius: 18px;
   }
 
-  /* Restrained violet → cyan gradient text */
+  /* Ink → accent gradient text (numbers, 404, emphasis) */
   .text-gradient {
     background-image: linear-gradient(
-      90deg,
-      var(--color-accent),
-      var(--color-accent-2)
+      120deg,
+      var(--color-fg),
+      var(--color-accent)
     );
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
+  }
+
+  /* Instrument Serif italic accent — the signature heading flourish */
+  .serif-accent {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+  }
+
+  /* Mono micro-label — uppercase eyebrow style */
+  .label-mono {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
   }
 
   /* Faint decorative glow behind hero sections */
@@ -93,7 +113,7 @@
     position: absolute;
     border-radius: 9999px;
     filter: blur(90px);
-    opacity: 0.16;
+    opacity: 0.14;
     pointer-events: none;
   }
 }

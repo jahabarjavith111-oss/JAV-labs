@@ -6,7 +6,7 @@ type PageHeaderProps = {
   description?: string;
 };
 
-/** Consistent header for interior pages. */
+/** Consistent header for interior pages. Clears the fixed pill navigation. */
 export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
   return (
     <section className="relative overflow-hidden border-b border-line bg-elevated">
@@ -14,11 +14,9 @@ export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
         className="glow -top-24 right-10 h-64 w-64 bg-accent"
         aria-hidden="true"
       />
-      <div className="shell relative py-16 sm:py-20">
-        <p className="mb-3 text-xs font-medium uppercase tracking-[0.2em] text-accent-2">
-          {eyebrow}
-        </p>
-        <h1 className="max-w-3xl font-display text-3xl font-semibold tracking-tight text-fg sm:text-4xl lg:text-5xl">
+      <div className="shell relative pt-[124px] pb-16 sm:pt-[148px] sm:pb-20">
+        <p className="label-mono mb-4 text-accent-2">{eyebrow}</p>
+        <h1 className="max-w-3xl font-display text-[clamp(34px,4.6vw,56px)] font-bold leading-[1.06] tracking-[-0.03em] text-balance text-fg">
           {title}
         </h1>
         {description ? (

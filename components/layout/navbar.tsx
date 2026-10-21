@@ -20,7 +20,7 @@ export function Navbar() {
     setOpen(false);
   }
 
-  // Close on Escape and return focus to the menu button.
+  // Close on Escape.
   useEffect(() => {
     if (!open) return;
 
@@ -36,108 +36,118 @@ export function Navbar() {
   }
 
   return (
-    <header className="sticky top-0 z-50 border-b border-line bg-base/85 backdrop-blur-md">
-      <div className="shell flex h-16 items-center justify-between gap-4">
-        {/* Brand */}
-        <Link
-          href="/"
-          className="group flex items-center gap-3"
-          aria-label={`${siteConfig.name} — home`}
-        >
-          <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-gradient-to-br from-accent to-accent-2 font-display text-sm font-bold text-white">
-            {siteConfig.initials}
-          </span>
-          <span className="hidden flex-col leading-tight sm:flex">
-            <span className="text-sm font-semibold text-fg">
-              {siteConfig.name}
-            </span>
-            <span className="text-xs text-fg-3">{siteConfig.role}</span>
-          </span>
-        </Link>
-
-        {/* Desktop navigation */}
-        <nav aria-label="Main navigation" className="hidden md:block">
-          <ul className="flex items-center gap-1">
-            {mainNav.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`rounded-full px-4 py-2 text-sm transition-colors duration-200 ${
-                    isActive(item.href)
-                      ? "text-fg"
-                      : "text-fg-2 hover:text-fg"
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-
-        <div className="flex items-center gap-2">
+    <header className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-5">
+      <div className="shell">
+        {/* Floating pill navigation */}
+        <div className="flex items-center justify-between gap-3 rounded-[999px] border border-line/80 bg-[var(--color-base)]/92 px-3 py-2 shadow-[0_14px_36px_-24px_rgba(16,42,67,0.45)] backdrop-blur-xl">
+          {/* Brand */}
           <Link
-            href="/contact"
-            className="hidden items-center gap-1.5 rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-accent/90 md:inline-flex"
+            href="/"
+            className="group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2"
+            aria-label={`${siteConfig.name} — home`}
           >
-            Start a Project
-            <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-gradient-to-br from-accent to-accent-2 font-display text-xs font-bold text-white">
+              {siteConfig.initials}
+            </span>
+            <span className="hidden flex-col leading-tight sm:flex">
+              <span className="text-sm font-semibold tracking-tight text-fg">
+                {siteConfig.name}
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.14em] text-fg-3">
+                Independent Developer
+              </span>
+            </span>
           </Link>
 
-          {/* Mobile menu toggle */}
-          <button
-            type="button"
-            onClick={() => setOpen((value) => !value)}
-            aria-expanded={open}
-            aria-controls="mobile-menu"
-            aria-label={open ? "Close menu" : "Open menu"}
-            className="inline-flex h-10 w-10 items-center justify-center rounded-lg border border-line text-fg-2 transition-colors hover:text-fg md:hidden"
-          >
-            {open ? (
-              <X className="h-5 w-5" aria-hidden="true" />
-            ) : (
-              <Menu className="h-5 w-5" aria-hidden="true" />
-            )}
-          </button>
-        </div>
-      </div>
+          {/* Desktop navigation */}
+          <nav aria-label="Main navigation" className="hidden md:block">
+            <ul className="flex items-center gap-0.5">
+              {mainNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`rounded-full px-4 py-2 text-[14.5px] transition-colors duration-200 ${
+                      isActive(item.href)
+                        ? "bg-[var(--color-fg)]/[0.06] font-medium text-fg"
+                        : "text-fg-2 hover:text-fg"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-      {/* Mobile navigation */}
-      {open ? (
-        <nav
-          id="mobile-menu"
-          aria-label="Mobile navigation"
-          className="border-t border-line bg-base md:hidden"
-        >
-          <ul className="shell flex flex-col gap-1 py-4">
-            {mainNav.map((item) => (
-              <li key={item.href}>
+          <div className="flex items-center gap-2">
+            {/* Primary CTA — accent pill with inner arrow chip */}
+            <Link
+              href="/contact"
+              className="group hidden items-center gap-2 rounded-full bg-accent py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-fg md:inline-flex"
+            >
+              Discuss your project
+              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent transition-transform duration-200 group-hover:translate-x-0.5">
+                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </span>
+            </Link>
+
+            {/* Mobile menu toggle */}
+            <button
+              type="button"
+              onClick={() => setOpen((value) => !value)}
+              aria-expanded={open}
+              aria-controls="mobile-menu"
+              aria-label={open ? "Close menu" : "Open menu"}
+              className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-fg transition-colors hover:text-accent-2 md:hidden"
+            >
+              {open ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* Mobile navigation — rounded panel under the pill */}
+        {open ? (
+          <nav
+            id="mobile-menu"
+            aria-label="Mobile navigation"
+            className="mt-2 rounded-[26px] border border-line bg-[var(--color-base)]/96 p-2 shadow-[0_20px_50px_-30px_rgba(16,42,67,0.5)] backdrop-blur-xl md:hidden"
+          >
+            <ul className="flex flex-col gap-0.5">
+              {mainNav.map((item) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    className={`block rounded-full px-4 py-3 text-base transition-colors ${
+                      isActive(item.href)
+                        ? "bg-[var(--color-fg)]/[0.06] font-medium text-fg"
+                        : "text-fg-2 hover:bg-[var(--color-fg)]/[0.05] hover:text-fg"
+                    }`}
+                  >
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+              <li className="mt-1.5">
                 <Link
-                  href={item.href}
-                  aria-current={isActive(item.href) ? "page" : undefined}
-                  className={`block rounded-lg px-3 py-3 text-base transition-colors ${
-                    isActive(item.href)
-                      ? "bg-card text-fg"
-                      : "text-fg-2 hover:bg-card hover:text-fg"
-                  }`}
+                  href="/contact"
+                  className="group flex items-center justify-between gap-2 rounded-full bg-accent py-2 pl-5 pr-2 text-sm font-medium text-white transition-colors hover:bg-fg"
                 >
-                  {item.label}
+                  Discuss your project
+                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent transition-transform duration-200 group-hover:translate-x-0.5">
+                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
+                  </span>
                 </Link>
               </li>
-            ))}
-            <li className="mt-2">
-              <Link
-                href="/contact"
-                className="flex items-center justify-center gap-1.5 rounded-full bg-accent px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-accent/90"
-              >
-                Start a Project
-                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      ) : null}
+            </ul>
+          </nav>
+        ) : null}
+      </div>
     </header>
   );
 }

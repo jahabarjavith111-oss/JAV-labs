@@ -174,7 +174,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.name))}`}
           />
           {errors.name ? (
-            <p id="name-error" className="mt-1.5 text-xs text-red-400">
+            <p id="name-error" className="mt-1.5 text-xs text-red-600">
               {errors.name}
             </p>
           ) : null}
@@ -197,7 +197,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.email))}`}
           />
           {errors.email ? (
-            <p id="email-error" className="mt-1.5 text-xs text-red-400">
+            <p id="email-error" className="mt-1.5 text-xs text-red-600">
               {errors.email}
             </p>
           ) : null}
@@ -243,7 +243,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.projectType ? (
-            <p id="projectType-error" className="mt-1.5 text-xs text-red-400">
+            <p id="projectType-error" className="mt-1.5 text-xs text-red-600">
               {errors.projectType}
             </p>
           ) : null}
@@ -272,7 +272,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.budget ? (
-            <p id="budget-error" className="mt-1.5 text-xs text-red-400">
+            <p id="budget-error" className="mt-1.5 text-xs text-red-600">
               {errors.budget}
             </p>
           ) : (
@@ -304,7 +304,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.timeline ? (
-            <p id="timeline-error" className="mt-1.5 text-xs text-red-400">
+            <p id="timeline-error" className="mt-1.5 text-xs text-red-600">
               {errors.timeline}
             </p>
           ) : null}
@@ -326,7 +326,7 @@ export function ContactForm() {
             className={`${inputClass} resize-y ${errorClass(Boolean(errors.message))}`}
           />
           {errors.message ? (
-            <p id="message-error" className="mt-1.5 text-xs text-red-400">
+            <p id="message-error" className="mt-1.5 text-xs text-red-600">
               {errors.message}
             </p>
           ) : null}
@@ -349,7 +349,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.reference))}`}
           />
           {errors.reference ? (
-            <p id="reference-error" className="mt-1.5 text-xs text-red-400">
+            <p id="reference-error" className="mt-1.5 text-xs text-red-600">
               {errors.reference}
             </p>
           ) : null}
@@ -362,11 +362,11 @@ export function ContactForm() {
           role="alert"
           className="mt-6 rounded-lg border border-amber-500/40 bg-amber-500/10 p-4"
         >
-          <p className="text-sm font-medium text-amber-200">
+          <p className="text-sm font-medium text-amber-900">
             The form isn&apos;t connected yet — your message has{" "}
             <strong>not</strong> been sent.
           </p>
-          <p className="mt-1.5 text-sm text-amber-200/80">
+          <p className="mt-1.5 text-sm text-amber-800">
             Please email directly instead, or configure{" "}
             <code className="rounded bg-amber-500/15 px-1">
               WEB3FORMS_ACCESS_KEY
@@ -375,7 +375,7 @@ export function ContactForm() {
           </p>
           <a
             href={buildMailtoLink(form)}
-            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-fg underline decoration-amber-400 underline-offset-4 hover:text-white"
+            className="mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-fg underline decoration-amber-600 underline-offset-4 hover:text-accent-2"
           >
             Open my message in your email app
             <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -389,16 +389,16 @@ export function ContactForm() {
           className="mt-6 flex items-start gap-3 rounded-lg border border-red-500/40 bg-red-500/10 p-4"
         >
           <CircleAlert
-            className="mt-0.5 h-4 w-4 shrink-0 text-red-400"
+            className="mt-0.5 h-4 w-4 shrink-0 text-red-600"
             aria-hidden="true"
           />
           <div>
-            <p className="text-sm font-medium text-red-300">
+            <p className="text-sm font-medium text-red-700">
               Something went wrong and your message was not delivered.
             </p>
             <a
               href={buildMailtoLink(form)}
-              className="mt-2 inline-block text-sm text-fg underline decoration-red-400 underline-offset-4 hover:text-white"
+              className="mt-2 inline-block text-sm text-fg underline decoration-red-500 underline-offset-4 hover:text-accent-2"
             >
               Try emailing directly instead
             </a>
@@ -407,7 +407,7 @@ export function ContactForm() {
       ) : null}
 
       {showAllErrors && Object.keys(errors).length > 0 && status === "idle" ? (
-        <p role="alert" className="mt-5 text-sm text-red-400">
+        <p role="alert" className="mt-5 text-sm text-red-600">
           Please fix the highlighted fields above.
         </p>
       ) : null}
@@ -416,7 +416,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={status === "submitting"}
-          className="inline-flex items-center justify-center gap-2 rounded-full bg-accent px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-accent/90 disabled:cursor-not-allowed disabled:opacity-60"
+          className="group inline-flex items-center justify-center gap-2.5 rounded-full bg-accent py-2 pl-6 pr-2 text-sm font-medium text-white transition-colors hover:bg-fg disabled:cursor-not-allowed disabled:opacity-60"
         >
           {status === "submitting" ? (
             <>
@@ -426,7 +426,9 @@ export function ContactForm() {
           ) : (
             <>
               Send project inquiry
-              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-accent transition-transform duration-200 group-hover:translate-x-0.5">
+                <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
+              </span>
             </>
           )}
         </button>
