@@ -54,7 +54,7 @@ NEXT_PUBLIC_SITE_URL=     # e.g. https://your-domain.com (no trailing slash)
 
 ## Contact form setup (Web3Forms)
 
-1. Visit <https://web3forms.com> and create a **free** access key using `jahabarjavith111@gmail.com`.
+1. Visit <https://web3forms.com> and create a **free** access key using `jav.digitalstudio2026@gmail.com`.
 2. Put it in `.env.local` locally, and in your hosting provider's environment settings in production.
 3. Test a real submission from a device before announcing the site.
 

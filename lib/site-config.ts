@@ -13,12 +13,11 @@ export const siteConfig = {
     "JAV Digital Engineering Studio — the independent studio of Abdul Javid J., building business websites, web applications, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
 
   /** Verified contact email — used by the contact form fallback and footer. */
-  email: "jahabarjavith111@gmail.com",
+  email: "jav.digitalstudio2026@gmail.com",
 
   location: "Trichy, Tamil Nadu, India",
 
   links: {
-    github: "https://github.com/jahabarjavith111-oss",
     linkedin: "https://www.linkedin.com/in/abdul-javid-a59048373",
   },
 

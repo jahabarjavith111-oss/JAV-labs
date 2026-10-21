@@ -4,7 +4,7 @@ import { Check, Mail, MapPin, Sparkles } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { siteConfig } from "@/lib/site-config";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/social-icons";
+import { LinkedinIcon } from "@/components/shared/social-icons";
 
 export const metadata: Metadata = {
   title: "Contact — Start a Project",
@@ -58,18 +58,6 @@ export default function ContactPage() {
                   <LinkedinIcon />
                 </span>
                 LinkedIn profile
-              </a>
-
-              <a
-                href={siteConfig.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 flex items-center gap-3 text-sm text-fg-2 transition-colors hover:text-fg"
-              >
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-line bg-elevated text-accent-2">
-                  <GithubIcon className="h-4 w-4" />
-                </span>
-                GitHub profile
               </a>
 
               <p className="mt-5 flex items-center gap-2 border-t border-line pt-5 text-sm text-fg-3">

@@ -4,7 +4,7 @@ import { Mail } from "lucide-react";
 import { footerNav, legalNav } from "@/lib/navigation";
 import { featuredServices } from "@/lib/services";
 import { siteConfig } from "@/lib/site-config";
-import { GithubIcon, LinkedinIcon } from "@/components/shared/social-icons";
+import { LinkedinIcon } from "@/components/shared/social-icons";
 
 export async function Footer() {
   "use cache";
@@ -34,15 +34,6 @@ export async function Footer() {
             websites, full-stack applications, and AI-powered products.
           </p>
           <div className="mt-5 flex items-center gap-3">
-            <a
-              href={siteConfig.links.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="GitHub profile"
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-line text-fg-3 transition-colors hover:border-line-2 hover:text-fg"
-            >
-              <GithubIcon />
-            </a>
             <a
               href={siteConfig.links.linkedin}
               target="_blank"
