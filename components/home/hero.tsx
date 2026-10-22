@@ -19,15 +19,15 @@ export function Hero() {
         aria-hidden="true"
       />
       <div
-        className="glow top-10 right-0 h-80 w-80 bg-accent-bright/60"
+        className="glow bottom-0 left-10 h-80 w-80 bg-accent-bright/50"
         aria-hidden="true"
       />
 
       <div className="shell relative z-[3] pt-[120px] pb-14 sm:pt-[144px] sm:pb-20">
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-12 lg:grid-cols-2 lg:items-stretch lg:gap-14">
           {/* Copy */}
-          <div>
-            <p className="mb-7 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
+          <div className="flex flex-col justify-center">
+            <p className="mb-7 inline-flex w-fit items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-medium text-white/90 backdrop-blur-sm">
               Independent studio — working with clients worldwide
             </p>
 
@@ -59,24 +59,27 @@ export function Hero() {
             </div>
           </div>
 
-          {/* Atomic orbit visual */}
-          <div className="relative">
-            <div className="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03]">
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="metadata"
-                aria-hidden="true"
-                className="block h-auto w-full object-contain"
-              >
-                <source
-                  src="/videos/jav-labs-atomic-orbit.mp4"
-                  type="video/mp4"
-                />
-              </video>
-            </div>
+          {/* Atomic orbit visual — full-height panel covering the right half */}
+          <div className="relative min-h-[280px] overflow-hidden lg:min-h-[540px]">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-hidden="true"
+              className="absolute inset-0 h-full w-full object-cover"
+            >
+              <source
+                src="/videos/jav-labs-atomic-orbit.mp4"
+                type="video/mp4"
+              />
+            </video>
+            {/* Soft blend of the video's light edge into the dark band */}
+            <div
+              className="absolute inset-y-0 left-0 w-20 bg-gradient-to-r from-fg to-transparent lg:w-28"
+              aria-hidden="true"
+            />
           </div>
         </div>
 
