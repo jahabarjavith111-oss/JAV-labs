@@ -1,26 +1,19 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import type { ComponentProps, ReactNode } from "react";
 
 type Variant = "primary" | "outline" | "light" | "ghost";
 
+/**
+ * Minimal, high-contrast, consistent across the site:
+ * solid ink primary · hairline outline secondary ·
+ * solid white on dark surfaces · bare text ghost.
+ */
 const variants: Record<Variant, string> = {
-  /* Accent pill, white label — hover fills with ink */
-  primary:
-    "bg-accent text-white hover:bg-fg shadow-[0_12px_28px_-16px_rgba(0,105,222,0.75)]",
-  /* Outlined pill — hover fills with ink */
-  outline: "border border-line-2 text-fg hover:bg-fg hover:text-white",
-  /* Outlined pill for dark backgrounds — hover fills with white */
-  light: "border border-white/35 text-white hover:bg-white hover:text-fg",
-  ghost: "text-fg-2 hover:text-fg",
-};
-
-const chips: Record<Variant, string> = {
-  primary: "bg-white text-accent",
-  outline:
-    "bg-fg text-white group-hover:bg-accent group-hover:text-white",
-  light: "bg-white text-fg group-hover:bg-accent group-hover:text-white",
-  ghost: "bg-line text-fg",
+  primary: "bg-fg text-white hover:bg-accent",
+  outline: "border border-line-2 text-fg hover:border-fg hover:bg-fg hover:text-white",
+  light: "bg-white text-fg hover:bg-accent hover:text-white",
+  ghost: "text-fg-2 underline-offset-4 hover:text-fg hover:underline",
 };
 
 type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
@@ -29,10 +22,7 @@ type ButtonLinkProps = Omit<ComponentProps<typeof Link>, "className"> & {
   children: ReactNode;
 };
 
-/**
- * Site-wide CTA link — pill shape with an inner circular arrow chip
- * that nudges right on hover.
- */
+/** Site-wide CTA link — rectangular, generous padding, small arrow. */
 export function ButtonLink({
   variant = "primary",
   className = "",
@@ -42,14 +32,13 @@ export function ButtonLink({
   return (
     <Link
       {...props}
-      className={`group inline-flex items-center gap-2.5 rounded-full py-2 pl-6 pr-2 text-sm font-medium transition-colors duration-200 ${variants[variant]} ${className}`}
+      className={`group inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold tracking-tight transition-colors duration-200 ${variants[variant]} ${className}`}
     >
       {children}
-      <span
-        className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full transition-transform duration-200 group-hover:translate-x-0.5 ${chips[variant]}`}
-      >
-        <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-      </span>
+      <ArrowRight
+        className="h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-0.5"
+        aria-hidden="true"
+      />
     </Link>
   );
 }

@@ -3,19 +3,23 @@ export type NavLink = {
   href: string;
 };
 
-/** Primary header navigation (Phase 1 routes only). */
+/**
+ * Primary header navigation.
+ * The logo doubles as Home; "Approach" scrolls to the
+ * approach section on the homepage from any route.
+ */
 export const mainNav: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Approach", href: "/#approach" },
   { label: "About", href: "/about" },
 ];
 
 /** Footer navigation. */
 export const footerNav: NavLink[] = [
-  { label: "Home", href: "/" },
-  { label: "Services", href: "/services" },
   { label: "Work", href: "/work" },
+  { label: "Services", href: "/services" },
+  { label: "Approach", href: "/#approach" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
 ];

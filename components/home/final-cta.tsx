@@ -15,20 +15,20 @@ export function FinalCta() {
       <div className="shell relative text-center">
         <h2
           id="cta-heading"
-          className="mx-auto max-w-2xl font-display text-[clamp(32px,4.4vw,56px)] font-bold leading-[1.08] tracking-[-0.03em] text-balance text-fg"
+          className="mx-auto max-w-2xl font-display text-[clamp(34px,4.8vw,58px)] font-bold leading-[1.06] tracking-[-0.03em] text-balance text-fg"
         >
           Have an Idea?{" "}
           <span className="serif-accent text-accent">Let&apos;s Build It.</span>
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-fg-2">
-          Tell me what you&apos;re trying to build, the problem you&apos;re
-          solving, and what success looks like. I&apos;ll review your
+          Tell us what you&apos;re trying to build, the problem you&apos;re
+          solving, and what success looks like. We&apos;ll review your
           requirements and discuss the next steps.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <ButtonLink href="/contact">Start a Project</ButtonLink>
+          <ButtonLink href="/contact">Tell Us What You&apos;re Building</ButtonLink>
           <ButtonLink href="/work" variant="outline">
-            Explore My Work
+            Explore Our Work
           </ButtonLink>
         </div>
       </div>

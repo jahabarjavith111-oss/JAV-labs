@@ -6,16 +6,22 @@ type ServiceCardProps = {
   service: Service;
   /** Show the typical deliverables list. */
   showDeliverables?: boolean;
+  /** Extra classes, e.g. "h-full" inside grid cells. */
+  className?: string;
 };
 
 /** Card used in the homepage services preview and on /services. */
-export function ServiceCard({ service, showDeliverables = true }: ServiceCardProps) {
+export function ServiceCard({
+  service,
+  showDeliverables = true,
+  className = "",
+}: ServiceCardProps) {
   const Icon = service.icon;
 
   return (
     <article
       id={`card-${service.slug}`}
-      className="group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-colors duration-200 hover:border-line-2 sm:p-7"
+      className={`group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-colors duration-200 hover:border-line-2 sm:p-7 ${className}`}
     >
       <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-elevated text-accent-2 transition-colors group-hover:border-accent/50">
         <Icon className="h-5 w-5" aria-hidden="true" />

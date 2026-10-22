@@ -4,13 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { Menu, X, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Menu, X } from "lucide-react";
 import { mainNav } from "@/lib/navigation";
 import { siteConfig } from "@/lib/site-config";
 
 export function Navbar() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
   // Close the mobile menu whenever the route changes.
   // (State adjustment during render — the recommended pattern,
@@ -32,15 +33,34 @@ export function Navbar() {
     return () => document.removeEventListener("keydown", onKeyDown);
   }, [open]);
 
+  // Solid background once the page is scrolled.
+  useEffect(() => {
+    function onScroll() {
+      setScrolled(window.scrollY > 24);
+    }
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   function isActive(href: string) {
-    return href === "/" ? pathname === "/" : pathname.startsWith(href);
+    // Hash links (e.g. /#approach) don't get an active state —
+    // they're section anchors, not dedicated routes.
+    if (href.includes("#")) return false;
+    return pathname.startsWith(href);
   }
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 pt-3 md:pt-5">
       <div className="shell">
-        {/* Floating pill navigation */}
-        <div className="flex items-center justify-between gap-3 rounded-[999px] border border-line/80 bg-[var(--color-base)]/92 px-3 py-2 shadow-[0_14px_36px_-24px_rgba(16,42,67,0.45)] backdrop-blur-xl">
+        {/* Floating pill navigation — solidifies on scroll */}
+        <div
+          className={`flex items-center justify-between gap-3 rounded-full border px-3 py-2 backdrop-blur-xl transition-all duration-300 ${
+            scrolled
+              ? "border-line bg-[var(--color-base)]/96 shadow-[0_16px_40px_-28px_rgba(10,13,18,0.45)]"
+              : "border-line/60 bg-[var(--color-base)]/80 shadow-none"
+          }`}
+        >
           {/* Brand */}
           <Link
             href="/"
@@ -77,7 +97,7 @@ export function Navbar() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`rounded-full px-4 py-2 text-[14.5px] transition-colors duration-200 ${
                       isActive(item.href)
-                        ? "bg-[var(--color-fg)]/[0.06] font-medium text-fg"
+                        ? "bg-fg/[0.06] font-medium text-fg"
                         : "text-fg-2 hover:text-fg"
                     }`}
                   >
@@ -89,18 +109,16 @@ export function Navbar() {
           </nav>
 
           <div className="flex items-center gap-2">
-            {/* Primary CTA — accent pill with inner arrow chip */}
+            {/* Primary CTA — prominent, high-contrast */}
             <Link
               href="/contact"
-              className="group hidden items-center gap-2 rounded-full bg-accent py-1.5 pl-5 pr-1.5 text-sm font-medium text-white transition-colors duration-200 hover:bg-fg md:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-fg px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent md:inline-flex"
             >
-              Discuss your project
-              <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent transition-transform duration-200 group-hover:translate-x-0.5">
-                <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-              </span>
+              Discuss a Project
+              <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
             </Link>
 
-            {/* Mobile menu toggle */}
+            {/* Mobile menu toggle — compact */}
             <button
               type="button"
               onClick={() => setOpen((value) => !value)}
@@ -118,12 +136,12 @@ export function Navbar() {
           </div>
         </div>
 
-        {/* Mobile navigation — rounded panel under the pill */}
+        {/* Mobile navigation — compact panel under the pill */}
         {open ? (
           <nav
             id="mobile-menu"
             aria-label="Mobile navigation"
-            className="mt-2 rounded-[26px] border border-line bg-[var(--color-base)]/96 p-2 shadow-[0_20px_50px_-30px_rgba(16,42,67,0.5)] backdrop-blur-xl md:hidden"
+            className="mt-2 rounded-3xl border border-line bg-[var(--color-base)]/97 p-2 shadow-[0_20px_50px_-30px_rgba(10,13,18,0.5)] backdrop-blur-xl md:hidden"
           >
             <ul className="flex flex-col gap-0.5">
               {mainNav.map((item) => (
@@ -131,10 +149,10 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className={`block rounded-full px-4 py-3 text-base transition-colors ${
+                    className={`block rounded-2xl px-4 py-2.5 text-[15px] transition-colors ${
                       isActive(item.href)
-                        ? "bg-[var(--color-fg)]/[0.06] font-medium text-fg"
-                        : "text-fg-2 hover:bg-[var(--color-fg)]/[0.05] hover:text-fg"
+                        ? "bg-fg/[0.06] font-medium text-fg"
+                        : "text-fg-2 hover:bg-fg/[0.05] hover:text-fg"
                     }`}
                   >
                     {item.label}
@@ -144,12 +162,10 @@ export function Navbar() {
               <li className="mt-1.5">
                 <Link
                   href="/contact"
-                  className="group flex items-center justify-between gap-2 rounded-full bg-accent py-2 pl-5 pr-2 text-sm font-medium text-white transition-colors hover:bg-fg"
+                  className="flex items-center justify-center gap-1.5 rounded-2xl bg-fg px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent"
                 >
-                  Discuss your project
-                  <span className="flex h-7 w-7 items-center justify-center rounded-full bg-white text-accent transition-transform duration-200 group-hover:translate-x-0.5">
-                    <ArrowUpRight className="h-3.5 w-3.5" aria-hidden="true" />
-                  </span>
+                  Discuss a Project
+                  <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </li>
             </ul>

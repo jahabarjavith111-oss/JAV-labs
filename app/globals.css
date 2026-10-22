@@ -2,28 +2,29 @@
 
 /* ---------------------------------------------------------------
    Design tokens — JAV Digital Engineering Studio
-   surface #fbfaf7 · ink #102a43 · accent azure (logo blue)
+   surface #fbfaf7 (warm white) · ink #0a0d12 (near-black)
+   editorial black/white/gray + one accent (logo blue)
    --------------------------------------------------------------- */
 @theme {
   /* Surfaces */
   --color-base: #fbfaf7;
-  --color-elevated: #f4f2ec;
+  --color-elevated: #f3f1ea;
   --color-card: #ffffff;
 
   /* Text */
-  --color-fg: #102a43;
-  --color-fg-2: #5f6c7e;
-  --color-fg-3: #7c8798;
+  --color-fg: #0a0d12;
+  --color-fg-2: #545b66;
+  --color-fg-3: #848b94;
 
   /* Accents — sampled from the JAV logo swoosh */
   --color-accent: #0069de;
   --color-accent-2: #0052c4;
-  /* Vivid logo cyan — for accent text on ink/navy surfaces */
+  /* Vivid logo cyan — for accent text on ink surfaces */
   --color-accent-bright: #00c2fd;
 
   /* Borders */
-  --color-line: #e2e4e7;
-  --color-line-2: #c9ccd1;
+  --color-line: #e5e3dc;
+  --color-line-2: #cfccc2;
 }
 
 @theme inline {
@@ -117,6 +118,28 @@
     filter: blur(90px);
     opacity: 0.14;
     pointer-events: none;
+  }
+
+  /* Subtle scroll-reveal — paired with <Reveal> (IntersectionObserver) */
+  .reveal {
+    opacity: 0;
+    transform: translateY(16px);
+    transition:
+      opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Reduced motion: reveal content immediately */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }
 

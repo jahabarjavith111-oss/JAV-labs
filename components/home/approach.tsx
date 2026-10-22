@@ -45,6 +45,7 @@ const points = [
 export function Approach() {
   return (
     <section
+      id="approach"
       aria-labelledby="approach-heading"
       className="border-t border-line bg-elevated py-16 sm:py-20"
     >

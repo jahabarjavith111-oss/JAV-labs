@@ -11,6 +11,9 @@ import {
 } from "lucide-react";
 import { PageHeader } from "@/components/shared/page-header";
 import { ProjectImage } from "@/components/shared/project-image";
+import { ButtonLink } from "@/components/shared/button";
+import { LinkedinIcon } from "@/components/shared/social-icons";
+import { siteConfig } from "@/lib/site-config";
 import { FinalCta } from "@/components/home/final-cta";
 
 export const metadata: Metadata = {
@@ -133,7 +136,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="Abdul Javid J."
-        description="Computer Science Engineering student and independent developer building websites, full-stack applications, and AI-oriented software."
+        description="The developer behind JAV Digital Engineering Studio — building websites, web applications, and AI-powered products for businesses and founders."
       />
 
       {/* Story */}
@@ -151,32 +154,45 @@ export default function AboutPage() {
               id="story-heading"
               className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
             >
-              Turning ideas into real-world applications
+              The developer you&apos;ll actually work with
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-fg-2">
               <p>
-                I&apos;m a Computer Science Engineering undergraduate at J.J
-                College of Engineering and Technology, and I build software
-                because I enjoy the moment an abstract idea becomes something
-                people can actually use — a website that wins trust, an app
-                that removes a manual task, or an AI feature that saves hours
-                of repetitive work.
+                I&apos;m Abdul Javid J., a Computer Science Engineering
+                undergraduate at J.J College of Engineering and Technology, and
+                the independent developer behind JAV Digital Engineering Studio.
+                I build software because I enjoy the moment an abstract idea
+                becomes something people can actually use — a website that wins
+                trust, an app that removes a manual task, or an AI feature that
+                saves hours of repetitive work.
               </p>
               <p>
                 My project-based experience spans AI-driven applications,
                 full-stack development, backend systems, business intelligence,
-                and security-oriented work. I care most about solving practical
-                problems for businesses and founders: understanding what you
-                need, building it properly, and shipping it so it holds up in
-                real use.
+                and security-oriented work — including internships where I
+                built and deployed real full-stack applications. I care most
+                about solving practical problems for businesses and founders:
+                understanding what you need, building it properly, and shipping
+                it so it holds up in real use.
               </p>
               <p>
-                Through JAV Digital Engineering Studio, I work directly with
-                clients — clear communication, honest
-                scope, and no pretending a project includes everything. If
-                something is outside what I can genuinely deliver, I&apos;ll
-                tell you.
+                Through this studio I work directly with clients — no account
+                managers, no handoffs. Clear communication, honest scope, and
+                no pretending a project includes everything. If something is
+                outside what I can genuinely deliver, I&apos;ll tell you.
               </p>
+            </div>
+            <div className="mt-8 flex flex-wrap items-center gap-4">
+              <ButtonLink href="/contact">Discuss a Project</ButtonLink>
+              <a
+                href={siteConfig.links.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group inline-flex items-center gap-2.5 rounded-xl border border-line-2 px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-fg hover:bg-fg hover:text-white"
+              >
+                <LinkedinIcon />
+                Connect on LinkedIn
+              </a>
             </div>
           </div>
         </div>

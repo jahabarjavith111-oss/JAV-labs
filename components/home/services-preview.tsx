@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { SectionHeading } from "@/components/shared/section-heading";
 import { ServiceCard } from "@/components/shared/service-card";
+import { Reveal } from "@/components/shared/reveal";
 import { featuredServices } from "@/lib/services";
 
 /** Homepage services preview — the four principal services. */
@@ -12,8 +13,8 @@ export function ServicesPreview() {
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <SectionHeading
             eyebrow="Services"
-            title="What I build"
-            description="Four ways I help businesses and founders turn ideas into working products."
+            title="What we build"
+            description="Four outcome-focused ways we help businesses and founders turn ideas into working products."
           />
           <Link
             href="/services"
@@ -25,8 +26,10 @@ export function ServicesPreview() {
         </div>
 
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {featuredServices.map((service) => (
-            <ServiceCard key={service.slug} service={service} />
+          {featuredServices.map((service, index) => (
+            <Reveal key={service.slug} delay={index * 60} className="h-full">
+              <ServiceCard service={service} className="h-full" />
+            </Reveal>
           ))}
         </div>
       </div>

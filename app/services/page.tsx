@@ -9,7 +9,7 @@ import { processSteps } from "@/lib/process";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Business websites, landing pages, full-stack web applications, SaaS MVPs, AI-powered applications, API integrations, application improvements, and maintenance.",
+    "Business websites and landing pages, full-stack web applications, AI applications and automation, and SaaS MVP design and development.",
 };
 
 export default function ServicesPage() {
@@ -160,6 +160,9 @@ export default function ServicesPage() {
                 </h3>
                 <p className="mt-1.5 text-sm leading-relaxed text-fg-2">
                   {step.description}
+                </p>
+                <p className="mt-3 border-t border-line pt-3 text-xs font-medium leading-relaxed text-accent-2">
+                  Deliverable: {step.deliverable}
                 </p>
               </li>
             ))}

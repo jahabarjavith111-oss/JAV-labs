@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/page-header";
-import { ProjectCard } from "@/components/shared/project-card";
+import { CaseStudyRow } from "@/components/shared/case-study-row";
+import { Reveal } from "@/components/shared/reveal";
 import { FinalCta } from "@/components/home/final-cta";
 import { projects } from "@/lib/projects";
 
@@ -19,15 +20,15 @@ export default function WorkPage() {
         description="Each case study covers the problem, the approach, and the honest current status of the project — including what is still in progress."
       />
 
-      <section className="py-14 sm:py-20" aria-label="Projects">
-        <div className="shell">
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-            {projects.map((project) => (
-              <ProjectCard key={project.slug} project={project} />
-            ))}
-          </div>
+      <section className="py-16 sm:py-24" aria-label="Projects">
+        <div className="shell space-y-20 sm:space-y-24">
+          {projects.map((project, index) => (
+            <Reveal key={project.slug}>
+              <CaseStudyRow project={project} reversed={index % 2 === 1} />
+            </Reveal>
+          ))}
 
-          <div className="mt-10 rounded-xl border border-line bg-elevated p-5 text-sm leading-relaxed text-fg-2">
+          <div className="rounded-xl border border-line bg-elevated p-5 text-sm leading-relaxed text-fg-2">
             Screenshots and live demos are being added over time — each case
             study states exactly what is currently public. No project here
             claims clients, revenue, or results that don&apos;t exist.
