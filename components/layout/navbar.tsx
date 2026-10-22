@@ -97,8 +97,8 @@ export function Navbar() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`rounded-full px-4 py-2 text-[14.5px] transition-colors duration-200 ${
                       isActive(item.href)
-                        ? "bg-fg/[0.06] font-medium text-fg"
-                        : "text-fg-2 hover:text-fg"
+                        ? "bg-fg/[0.07] font-semibold text-fg"
+                        : "font-medium text-fg hover:text-accent-2"
                     }`}
                   >
                     {item.label}
@@ -151,8 +151,8 @@ export function Navbar() {
                     aria-current={isActive(item.href) ? "page" : undefined}
                     className={`block rounded-2xl px-4 py-2.5 text-[15px] transition-colors ${
                       isActive(item.href)
-                        ? "bg-fg/[0.06] font-medium text-fg"
-                        : "text-fg-2 hover:bg-fg/[0.05] hover:text-fg"
+                        ? "bg-fg/[0.07] font-semibold text-fg"
+                        : "font-medium text-fg hover:bg-fg/[0.05] hover:text-accent-2"
                     }`}
                   >
                     {item.label}
