@@ -13,7 +13,7 @@ export function FaqSection() {
           description="What clients usually want to know before starting a project."
           align="center"
         />
-        <div className="mt-10 sm:mt-14">
+        <div className="mx-auto mt-10 max-w-3xl sm:mt-14">
           <FaqList items={faqs} />
         </div>
       </div>
