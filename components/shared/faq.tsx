@@ -1,26 +1,22 @@
-import { ChevronDown } from "lucide-react";
 import type { Faq } from "@/lib/faqs";
 
 /**
- * Accessible FAQ accordion built on native <details>/<summary>,
- * so it works with keyboard and touch without JavaScript.
+ * FAQ list — every question and answer is permanently visible.
+ * No accordion, no clicking: visitors read everything at a glance,
+ * which also keeps the full content available to search engines.
  */
 export function FaqList({ items }: { items: Faq[] }) {
   return (
-    <div className="divide-y divide-line rounded-2xl border border-line bg-card">
+    <div className="grid gap-8 sm:grid-cols-2 sm:gap-x-12 sm:gap-y-10 lg:gap-x-16">
       {items.map((item) => (
-        <details key={item.question} className="group">
-          <summary className="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-left text-sm font-medium text-fg transition-colors hover:text-accent-2 sm:px-6 sm:text-base [&::-webkit-details-marker]:hidden">
+        <div key={item.question} className="min-w-0">
+          <h3 className="text-base font-semibold leading-snug text-fg sm:text-lg">
             {item.question}
-            <ChevronDown
-              className="h-4 w-4 shrink-0 text-fg-3 transition-transform duration-200 group-open:rotate-180"
-              aria-hidden="true"
-            />
-          </summary>
-          <p className="px-5 pb-5 text-sm leading-relaxed text-fg-2 sm:px-6 sm:pb-6">
+          </h3>
+          <p className="mt-3 text-sm leading-relaxed text-fg-2 sm:text-[15px]">
             {item.answer}
           </p>
-        </details>
+        </div>
       ))}
     </div>
   );
