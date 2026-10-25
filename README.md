@@ -52,9 +52,19 @@ SMTP_USER=jav.digitalstudio2026@gmail.com
 SMTP_PASS=               # 16-character Google App Password
 CONTACT_NOTIFY_EMAIL=jav.digitalstudio2026@gmail.com
 NEXT_PUBLIC_SITE_URL=    # e.g. https://your-domain.com (no trailing slash)
+GROQ_API_KEY=            # optional — powers the AI site chat (free at console.groq.com)
 ```
 
 > ⚠️ Until `SMTP_PASS` is set, the contact form honestly tells the visitor the message was **not** sent and offers a prefilled `mailto:` fallback. It never fakes success.
+
+## AI chat assistant ("Ask JAV")
+
+A floating chat widget (bottom-right, every page) answers visitors about services, pricing, process, and projects — grounded in the site's real content with the same honesty rules (no invented claims, pricing from $450 USD, form/email contact only).
+
+- **With `GROQ_API_KEY` set:** replies come from Groq's Llama 3.3 70B (free tier), grounded via a system prompt built from `lib/services.ts`, `lib/process.ts`, `lib/projects.ts`, and `lib/faqs.ts`.
+- **Without a key (or if Groq fails):** a built-in scripted assistant answers the same questions from the same content — the chat never breaks.
+
+Setup: get a free key at <https://console.groq.com> (API Keys), add `GROQ_API_KEY` in Vercel → Settings → Environment Variables, and redeploy. The key is only read server-side in `app/api/chat/route.ts` (with per-IP rate limiting).
 
 ## Contact form setup (Gmail SMTP)
 

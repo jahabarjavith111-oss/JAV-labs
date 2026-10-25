@@ -8,6 +8,7 @@ import {
 import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
+import { ChatWidget } from "@/components/shared/chat-widget";
 import { siteConfig } from "@/lib/site-config";
 
 const inter = Inter({
@@ -96,6 +97,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           {children}
         </main>
         <Footer />
+        <ChatWidget />
       </body>
     </html>
   );
