@@ -9,34 +9,56 @@ import {
   validateContactForm,
   type ContactFormData,
 } from "@/lib/validation";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 /**
  * Contact form endpoint — sends mail over Gmail SMTP (Google App Password).
  *
  * Behavior:
  *  - validates input server-side (in addition to client validation)
+ *  - best-effort per-IP rate limiting (shared in-memory limiter)
+ *  - strips CR/LF from user input used in email headers (nodemailer
+ *    header-injection defense in depth)
  *  - silently accepts honeypot submissions (bot trap)
  *  - emails the studio a full notification AND auto-replies to the client
  *    when SMTP_PASS is configured
  *  - returns `configured: false` when it is not, so the client can show
  *    an honest fallback instead of pretending the message was sent
  */
+
+/** Remove control characters / newlines that could inject email headers. */
+function sanitize(value: unknown, maxLength: number): string {
+  return String(value ?? "")
+    .replace(/[\r\n\u0000-\u001f\u007f]+/g, " ")
+    .trim()
+    .slice(0, maxLength);
+}
+
 export async function POST(request: Request) {
+  const ip = clientIp(request);
+  // Generous enough for real humans, hostile to scripted floods.
+  if (rateLimit(`contact:${ip}`, 5, 10 * 60_000)) {
+    return Response.json(
+      { ok: false, error: "Too many submissions — please try again later." },
+      { status: 429 },
+    );
+  }
+
   let data: ContactFormData;
 
   try {
     const body = (await request.json()) as Partial<ContactFormData>;
     data = {
-      name: String(body.name ?? ""),
-      email: String(body.email ?? ""),
-      company: String(body.company ?? ""),
-      country: String(body.country ?? ""),
-      projectType: String(body.projectType ?? ""),
-      budget: String(body.budget ?? ""),
-      timeline: String(body.timeline ?? ""),
-      message: String(body.message ?? ""),
-      reference: String(body.reference ?? ""),
-      website: String(body.website ?? ""),
+      name: sanitize(body.name, 120),
+      email: sanitize(body.email, 254),
+      company: sanitize(body.company, 120),
+      country: sanitize(body.country, 80),
+      projectType: sanitize(body.projectType, 120),
+      budget: sanitize(body.budget, 120),
+      timeline: sanitize(body.timeline, 120),
+      message: sanitize(body.message, 5000),
+      reference: sanitize(body.reference, 500),
+      website: sanitize(body.website, 200),
     };
   } catch {
     return Response.json({ ok: false }, { status: 400 });

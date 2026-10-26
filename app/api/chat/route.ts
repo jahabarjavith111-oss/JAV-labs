@@ -7,6 +7,7 @@ import {
   CHAT_MAX_MESSAGE_LENGTH,
   type ChatMessage,
 } from "@/lib/chat";
+import { clientIp, rateLimit } from "@/lib/rate-limit";
 
 /**
  * Site chat endpoint ("Ask JAV").
@@ -18,36 +19,14 @@ import {
  *
  * Behavior:
  *  - validates input server-side (lengths, roles, history cap)
- *  - best-effort per-IP rate limiting (in-memory; resets on cold starts)
+ *  - best-effort per-IP rate limiting (shared in-memory limiter)
  *  - no GROQ_API_KEY configured → answers from the scripted brain, so the
  *    chat still works honestly instead of erroring
  *  - provider failure → falls back to the scripted answer as well
  */
 
 const GROQ_URL = "https://api.groq.com/openai/v1/chat/completions";
-const RATE_LIMIT_WINDOW_MS = 60_000;
 const RATE_LIMIT_MAX = 8;
-
-/** Best-effort in-memory rate limit: sliding window per client IP. */
-const hits = new Map<string, number[]>();
-
-function isRateLimited(ip: string): boolean {
-  const now = Date.now();
-  const recent = (hits.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
-  if (recent.length >= RATE_LIMIT_MAX) {
-    hits.set(ip, recent);
-    return true;
-  }
-  recent.push(now);
-  hits.set(ip, recent);
-  // Keep the map small on long-lived instances.
-  if (hits.size > 5000) {
-    for (const [key, times] of hits) {
-      if (times.every((t) => now - t >= RATE_LIMIT_WINDOW_MS)) hits.delete(key);
-    }
-  }
-  return false;
-}
 
 function sanitizeHistory(value: unknown): ChatMessage[] {
   if (!Array.isArray(value)) return [];
@@ -84,9 +63,8 @@ export async function POST(request: Request) {
     return Response.json({ ok: false }, { status: 400 });
   }
 
-  const ip =
-    request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ?? "unknown";
-  if (isRateLimited(ip)) {
+  const ip = clientIp(request);
+  if (rateLimit(`chat:${ip}`, RATE_LIMIT_MAX)) {
     return Response.json(
       { ok: false, error: "Too many messages — please pause for a moment." },
       { status: 429 },
