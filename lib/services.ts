@@ -55,16 +55,17 @@ export const services: Service[] = [
     icon: Layers,
     title: "Full-Stack Web Applications",
     summary:
-      "Custom web applications with dashboards, workflows, and data management — replacing spreadsheets and manual processes with software that scales.",
+      "Custom web applications with dashboards, workflows, and data management — including CRM systems — replacing spreadsheets and manual processes with software that scales.",
     description:
-      "When a website isn't enough — you need users, dashboards, data, and workflows. I build web applications end to end: the interface people use, the APIs behind them, and the database that keeps everything consistent. This also covers connecting the tools you already rely on and improving existing applications without a full rewrite.",
+      "When a website isn't enough — you need users, dashboards, data, and workflows. I build web applications end to end: the interface people use, the APIs behind them, and the database that keeps everything consistent. This includes CRM systems and internal tools that centralize customers, pipelines, and reporting — plus connecting the tools you already rely on and improving existing applications without a full rewrite.",
     audience:
-      "Businesses and teams with an internal process, a customer-facing product, or a workflow currently held together by spreadsheets.",
+      "Businesses and teams with an internal process, a customer-facing product, a CRM or pipeline they want systematized, or a workflow currently held together by spreadsheets.",
     problem:
       "Your operations depend on manual work, disconnected tools, or spreadsheets that don't scale and can't be shared safely.",
     deliverables: [
       "Designed user interface for the key workflows",
       "Backend APIs and database design",
+      "CRM features where needed: contacts, pipeline, activity tracking, and reports",
       "Authentication and role-based access where required",
       "Testing, deployment, and handover documentation",
     ],

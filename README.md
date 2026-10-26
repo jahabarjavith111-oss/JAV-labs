@@ -39,7 +39,7 @@ All editable content lives in `lib/`:
 | `lib/navigation.ts` | Header + footer links |
 | `lib/services.ts` | All service descriptions (homepage previews the first 4) |
 | `lib/projects.ts` | The 3 case studies: TXNORYX, VERIDEX, CiVIQ |
-| `lib/pricing.ts` | **Starting price ($450)** and pricing copy |
+| `lib/pricing.ts` | Pricing copy (no published prices — custom quotes) |
 | `lib/faqs.ts` | FAQ questions/answers |
 | `lib/process.ts` | The 6-step process |
 
@@ -59,7 +59,7 @@ GROQ_API_KEY=            # optional — powers the AI site chat (free at console
 
 ## AI chat assistant ("Ask JAV")
 
-A floating chat widget (bottom-right, every page) answers visitors about services, pricing, process, and projects — grounded in the site's real content with the same honesty rules (no invented claims, pricing from $450 USD, form/email contact only).
+A floating chat widget (bottom-right, every page) answers visitors about services, pricing, process, and projects — grounded in the site's real content with the same honesty rules (no invented claims or prices, form/email contact only).
 
 - **With `GROQ_API_KEY` set:** replies come from Groq's Llama 3.3 70B (free tier), grounded via a system prompt built from `lib/services.ts`, `lib/process.ts`, `lib/projects.ts`, and `lib/faqs.ts`.
 - **Without a key (or if Groq fails):** a built-in scripted assistant answers the same questions from the same content — the chat never breaks.

@@ -2,7 +2,7 @@ import { Check } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 import { pricing } from "@/lib/pricing";
 
-/** Homepage pricing block — single "starting at" statement with custom quotes. */
+/** Homepage pricing block — custom-quotes statement (no published prices). */
 export function Pricing() {
   return (
     <section

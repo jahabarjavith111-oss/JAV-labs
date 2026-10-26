@@ -10,8 +10,7 @@ import { faqs } from "@/lib/faqs";
  * The assistant is grounded exclusively in the real site content below —
  * services, process, pricing, projects, and FAQs — with the same honesty
  * rules the site itself follows: no invented clients, metrics, or prices,
- * pricing anchored at "from $450 USD", and contact via the form or email
- * only (no phone number).
+ * and contact via the form or email only (no phone number).
  */
 
 export const CHAT_MAX_MESSAGE_LENGTH = 1000;
@@ -52,7 +51,7 @@ export function buildSystemPrompt(): string {
 
 STRICT HONESTY RULES
 - Use only the facts in this prompt. Never invent clients, testimonials, reviews, metrics, prices, team size, years of experience, or capabilities.
-- Pricing: projects start at ${"$450"} USD. The final price depends on scope and is quoted in writing before any work begins. Never state a fixed price for a specific project type.
+- Pricing: never state numbers. Every project is custom-quoted in writing before any work begins, based on scope. Do not invent prices, starting figures, day rates, or estimates — direct pricing questions to the contact form.
 - Never share or invent a phone number.
 - If you do not know something, say so plainly and suggest using the contact form.
 - Never claim work or outcomes that are not listed below.
@@ -73,7 +72,7 @@ EVERY ENGAGEMENT INCLUDES
 ${promiseLines}
 
 PRICING & PAYMENT
-- Projects start at $450 USD; every quote is custom, based on scope, features, integrations, design complexity, timeline, and support.
+- Prices are not published. Every quote is custom, based on scope, features, integrations, design complexity, timeline, and support.
 - A clear written quote comes before any build work. Payment schedule and milestones are agreed in the proposal.
 - Deployment and handover (source code, access, documentation) are included where part of the agreed scope — no lock-in.
 
@@ -106,11 +105,15 @@ export function scriptedAnswer(message: string): string {
   }
 
   if (has("price", "pricing", "cost", "quote", "budget", "how much", "charge", "fee")) {
-    return `Projects start at $450 USD. The final price depends on scope — pages/features, integrations, design complexity, timeline, and support. You get a clear written quote before any build work begins, and payment milestones are agreed up front.\n\nUse the contact form at /contact with your requirements and you'll receive an honest quote.`;
+    return `Every project is quoted individually after understanding the scope — pages/features, integrations, design complexity, timeline, and support. Prices are not published; you get a clear, itemized written quote before any build work begins, and payment milestones are agreed up front.\n\nShare your requirements at /contact and you'll receive an honest quote.`;
+  }
+
+  if (has("crm", "customer relationship", "sales pipeline", "lead management", "client management", "internal tool", "admin panel")) {
+    return `Yes — CRM systems, dashboards, and internal business tools are a core part of the full-stack application work:\n- Contact & company records\n- Sales pipeline and deal tracking\n- Activity, task, and follow-up tracking\n- Role-based access for teams\n- Reports and dashboards\n\nEverything is shaped around the process your team already uses — not a generic template. Describe how you manage customers today at /contact and the first version will be scoped around it.`;
   }
 
   if (has("service", "what do you", "what can you", "build", "offer", "websites", "web app", "saas", "landing")) {
-    return `Four service groups:\n- Business websites & landing pages — fast, credible, built to convert\n- Full-stack web applications — dashboards, workflows, APIs, databases\n- AI applications & automation — AI features around a real, measurable use case\n- SaaS MVP design & development — a focused first version to validate your idea\n\nDetails at /services, or tell me what you're building and I'll point you to the right one.`;
+    return `Four service groups:\n- Business websites & landing pages — fast, credible, built to convert\n- Full-stack web applications — dashboards, workflows, APIs, databases, CRM systems\n- AI applications & automation — AI features around a real, measurable use case\n- SaaS MVP design & development — a focused first version to validate your idea\n\nDetails at /services, or tell me what you're building and I'll point you to the right one.`;
   }
 
   if (has("process", "how do you work", "stages", "milestone", "workflow", "approach")) {
@@ -165,5 +168,5 @@ export function scriptedAnswer(message: string): string {
     return `Sites are built modern-first: fast loading, responsive on every device, and search-engine friendly structure. Post-launch support can be agreed explicitly if you want ongoing help.\n\nTell me what matters most for your project at /contact.`;
   }
 
-  return `I can help with the studio's services, pricing (from $450 USD), process, and projects — or how to start a project.\n\nTry asking e.g. "What do you build?", "How much does a project cost?", or "How long does it take?". For anything specific, the contact form at /contact reaches the studio directly.`;
+  return `I can help with the studio's services (websites, web applications, CRMs, AI, SaaS MVPs), the process, projects, or how to start — and pricing is handled through a custom quote.\n\nTry asking e.g. "What do you build?", "Can you build a CRM?", or "How long does it take?". For anything specific, the contact form at /contact reaches the studio directly.`;
 }

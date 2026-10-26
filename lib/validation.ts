@@ -9,6 +9,7 @@ export const projectTypes = [
   "Business website",
   "Landing page",
   "Full-stack application",
+  "CRM system",
   "AI-powered application",
   "SaaS MVP",
   "Existing application improvement",
@@ -16,13 +17,13 @@ export const projectTypes = [
 ] as const;
 
 /**
- * Budget options — project-size based, no fixed price ranges.
- * Pricing starts at $450 USD and is quoted per project.
+ * Budget options — project-type based, no price figures shown.
+ * Pricing is quoted per project after requirements are understood.
  */
 export const budgetOptions = [
-  "Small professional website (from $450 USD)",
   "Business website / landing page",
   "Web application",
+  "CRM system / internal business tool",
   "SaaS MVP / startup product",
   "AI-powered product",
   "Not sure yet",

@@ -11,10 +11,10 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "JAV Digital Engineering Studio — Websites, Web Apps & AI Products",
+      "JAV Digital Engineering Studio — Websites, Web Apps, CRMs & AI Products",
   },
   description:
-    "Independent studio building business websites, full-stack web applications, AI-powered products, and SaaS MVPs for founders and businesses worldwide. Projects start at $450 USD.",
+    "Independent studio building business websites, full-stack web applications, CRM systems, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
 };
 
 export default function HomePage() {

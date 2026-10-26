@@ -52,6 +52,8 @@ export const metadata: Metadata = {
     "freelance developer",
     "full-stack developer",
     "web applications",
+    "CRM development",
+    "CRM systems",
     "AI development",
     "SaaS MVP development",
     "business websites",

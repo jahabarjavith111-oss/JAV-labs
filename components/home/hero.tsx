@@ -4,6 +4,7 @@ import { HeroVisual } from "@/components/home/hero-visual";
 const heroSummary = [
   "Business Websites",
   "Web Applications",
+  "CRM Systems",
   "AI Solutions",
   "SaaS MVPs",
 ];
@@ -83,7 +84,7 @@ export function Hero() {
         </div>
 
         {/* Summary row */}
-        <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-7 sm:grid-cols-4">
+        <ul className="mt-12 grid grid-cols-2 gap-x-6 gap-y-3 border-t border-line pt-7 sm:grid-cols-3 lg:grid-cols-5">
           {heroSummary.map((item) => (
             <li
               key={item}

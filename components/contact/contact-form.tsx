@@ -291,7 +291,7 @@ export function ContactForm() {
             </p>
           ) : (
             <p id="budget-help" className="mt-1.5 text-xs text-fg-3">
-              Projects start at $450 USD — every project is quoted
+              Choose the closest match — every project is quoted
               individually, and the final cost differs with scope.
             </p>
           )}

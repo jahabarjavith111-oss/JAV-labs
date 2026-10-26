@@ -23,12 +23,17 @@ export const faqs: Faq[] = [
   {
     question: "How is project pricing determined?",
     answer:
-      "Pricing depends on scope: the number of pages or features, integrations, design complexity, timeline, and support requirements. Projects start at $450 USD, and you receive a clear quote based on your actual requirements before any work begins.",
+      "Every project is quoted individually — the price depends on the number of pages or features, integrations, design complexity, timeline, and support requirements. You receive a clear, itemized quote based on your actual requirements before any work begins, and no work starts until you approve it.",
   },
   {
     question: "How long does a project take?",
     answer:
       "It depends entirely on scope. A focused landing page can be delivered quickly, while a full-stack application takes longer. Timelines are estimated during scoping and agreed as part of the proposal — and they depend on timely feedback and content from your side as well.",
+  },
+  {
+    question: "Can you build a CRM or internal business tool?",
+    answer:
+      "Yes — CRM systems, dashboards, admin panels, and internal tools are a core part of the full-stack application work: contact and company records, sales pipelines, activity and task tracking, role-based access for teams, and reports — shaped around the process your team already uses rather than a generic template. Describe how you manage customers today at /contact and the first version will be scoped around it.",
   },
   {
     question: "Can you integrate AI into an existing product?",

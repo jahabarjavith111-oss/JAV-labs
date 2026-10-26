@@ -62,11 +62,10 @@ export default function TermsPage() {
               3. Pricing
             </h2>
             <p>
-              Prices shown on this site (such as &quot;projects start at $450
-              USD&quot;) are starting prices for small, clearly scoped work —
-              not fixed quotes. Final pricing depends on scope, integrations,
+              This site does not publish fixed prices. Every project is quoted
+              individually in writing — pricing depends on scope, integrations,
               design complexity, timeline, and support requirements, and is
-              confirmed in your individual quote before work begins.
+              confirmed in your individual quote before any work begins.
             </p>
           </section>
 
