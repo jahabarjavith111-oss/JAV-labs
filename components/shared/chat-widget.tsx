@@ -33,9 +33,36 @@ const SUGGESTIONS = [
   "I have an idea — where do I start?",
 ];
 
-/** Minimal rich-text: paragraphs, "- " bullets, **bold**. */
+/** Minimal rich-text: paragraphs, "- " bullets, **bold**, clickable links. */
 function RichText({ text }: { text: string }) {
   const blocks = text.split(/\n+/).map((b) => b.trim()).filter(Boolean);
+
+  /** Split a plain segment into text + clickable http(s) links. */
+  function withLinks(segment: string, key: string) {
+    const chunks = segment.split(/(https?:\/\/[^\s]+)/g);
+    return chunks.map((chunk, j) => {
+      if (!/^https?:\/\//.test(chunk)) {
+        return <Fragment key={`${key}-${j}`}>{chunk}</Fragment>;
+      }
+      // Peel trailing punctuation off the URL so it isn't part of the href.
+      const match = chunk.match(/^(https?:\/\/[^\s.,;:!]+)([.,;:!]*\s*)$/);
+      const href = match ? match[1] : chunk;
+      const tail = match ? match[2] : "";
+      return (
+        <Fragment key={`${key}-${j}`}>
+          <a
+            href={href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-accent underline underline-offset-2 transition-colors hover:text-accent-2 motion-reduce:transition-none"
+          >
+            {href}
+          </a>
+          {tail}
+        </Fragment>
+      );
+    });
+  }
 
   function inline(block: string, key: number) {
     const parts = block.split(/\*\*(.+?)\*\*/g);
@@ -47,7 +74,7 @@ function RichText({ text }: { text: string }) {
               {part}
             </strong>
           ) : (
-            <Fragment key={i}>{part}</Fragment>
+            <Fragment key={i}>{withLinks(part, `${key}-${i}`)}</Fragment>
           ),
         )}
       </Fragment>
@@ -78,10 +105,27 @@ export function ChatWidget() {
   const [input, setInput] = useState("");
   const [sending, setSending] = useState(false);
   const [error, setError] = useState(false);
+  const [whatsappLink, setWhatsappLink] = useState<string | null>(null);
 
   const inputRef = useRef<HTMLInputElement>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
   const openedRef = useRef(false);
+
+  // Fetch the WhatsApp link from the assistant API on first open —
+  // keeps the number out of every page's HTML (it exists only in the chat).
+  useEffect(() => {
+    if (!open || whatsappLink !== null) return;
+    let cancelled = false;
+    fetch("/api/chat")
+      .then((r) => (r.ok ? (r.json() as Promise<{ whatsapp?: string }>) : null))
+      .then((data) => {
+        if (!cancelled && data?.whatsapp) setWhatsappLink(data.whatsapp);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [open, whatsappLink]);
 
   // Focus the input the first time the panel opens.
   useEffect(() => {
@@ -289,6 +333,16 @@ export function ChatWidget() {
                 {s}
               </button>
             ))}
+            {whatsappLink && (
+              <a
+                href={whatsappLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="rounded-full border border-line bg-base px-3 py-1.5 text-xs font-medium text-fg transition-colors hover:border-accent hover:text-accent motion-reduce:transition-none"
+              >
+                Chat on WhatsApp ↗
+              </a>
+            )}
           </div>
         )}
 

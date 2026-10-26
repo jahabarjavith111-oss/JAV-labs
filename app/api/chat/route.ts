@@ -8,6 +8,7 @@ import {
   type ChatMessage,
 } from "@/lib/chat";
 import { clientIp, rateLimit } from "@/lib/rate-limit";
+import { siteConfig } from "@/lib/site-config";
 
 /**
  * Site chat endpoint ("Ask JAV").
@@ -42,6 +43,15 @@ function sanitizeHistory(value: unknown): ChatMessage[] {
     }))
     .filter((item) => item.content.trim().length > 0)
     .slice(-CHAT_MAX_HISTORY);
+}
+
+/**
+ * GET — serves the widget's WhatsApp deep link (pre-filled greeting).
+ * The number is intentionally kept out of page HTML; the widget fetches
+ * it here when the chat panel is opened.
+ */
+export async function GET() {
+  return Response.json({ ok: true, whatsapp: siteConfig.whatsapp.prefillLink });
 }
 
 export async function POST(request: Request) {

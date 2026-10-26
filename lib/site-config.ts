@@ -22,6 +22,19 @@ export const siteConfig = {
   },
 
   /**
+   * WhatsApp direct chat — shown ONLY inside the AI chat assistant
+   * (never in the footer, contact page, or anywhere else on the site).
+   * `link` is the clean wa.me URL used in chat replies; `prefillLink`
+   * opens a chat with a pre-filled greeting (used by the widget's chip).
+   */
+  whatsapp: {
+    display: "+91 93459 92521",
+    link: "https://wa.me/919345992521",
+    prefillLink:
+      "https://wa.me/919345992521?text=Hi%20Abdul%2C%20I%27d%20like%20to%20discuss%20a%20project%20with%20JAV%20Digital%20Engineering%20Studio.",
+  },
+
+  /**
    * Production base URL (no trailing slash).
    * Set NEXT_PUBLIC_SITE_URL when a custom domain is configured —
    * used only for canonical/OG metadata, robots, and the sitemap.

@@ -59,7 +59,7 @@ GROQ_API_KEY=            # optional — powers the AI site chat (free at console
 
 ## AI chat assistant ("Ask JAV")
 
-A floating chat widget (bottom-right, every page) answers visitors about services, pricing, process, and projects — grounded in the site's real content with the same honesty rules (no invented claims or prices, form/email contact only).
+A floating chat widget (bottom-right, every page) answers visitors about services, pricing, process, and projects — grounded in the site's real content with the same honesty rules (no invented claims or prices; contact via form, email, or the studio's WhatsApp, which is shared only inside the chat).
 
 - **With `GROQ_API_KEY` set:** replies come from Groq's Llama 3.3 70B (free tier), grounded via a system prompt built from `lib/services.ts`, `lib/process.ts`, `lib/projects.ts`, and `lib/faqs.ts`.
 - **Without a key (or if Groq fails):** a built-in scripted assistant answers the same questions from the same content — the chat never breaks.
