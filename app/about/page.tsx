@@ -19,7 +19,7 @@ import { FinalCta } from "@/components/home/final-cta";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Abdul Javid J. — Computer Science Engineering student and independent developer building websites, full-stack applications, and AI-powered software.",
+    "Abdul Javid J. — independent software engineer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products.",
 };
 
 const focusAreas = [
@@ -136,7 +136,7 @@ export default function AboutPage() {
       <PageHeader
         eyebrow="About"
         title="Abdul Javid J."
-        description="The developer behind JAV Digital Engineering Studio — building websites, web applications, and AI-powered products for businesses and founders."
+        description="Independent software engineer and founder of JAV Digital Engineering Studio — building websites, web applications, CRM systems, and AI-powered products for businesses and founders."
       />
 
       {/* Story */}
@@ -158,28 +158,30 @@ export default function AboutPage() {
             </h2>
             <div className="mt-5 space-y-4 text-base leading-relaxed text-fg-2">
               <p>
-                I&apos;m Abdul Javid J., a Computer Science Engineering
-                undergraduate at J.J College of Engineering and Technology, and
-                the independent developer behind JAV Digital Engineering Studio.
-                I build software because I enjoy the moment an abstract idea
-                becomes something people can actually use — a website that wins
-                trust, an app that removes a manual task, or an AI feature that
-                saves hours of repetitive work.
+                I&apos;m Abdul Javid J. — the independent software engineer
+                behind JAV Digital Engineering Studio. I build software for one
+                reason: the moment an abstract idea becomes something people can
+                actually use. A website that wins trust. An application that
+                removes a manual task. An AI feature that saves hours of
+                repetitive work.
               </p>
               <p>
-                My project-based experience spans AI-driven applications,
-                full-stack development, backend systems, business intelligence,
-                and security-oriented work — including internships where I
-                built and deployed real full-stack applications. I care most
-                about solving practical problems for businesses and founders:
-                understanding what you need, building it properly, and shipping
-                it so it holds up in real use.
+                My experience spans AI-driven applications, full-stack
+                development, backend systems, business intelligence, and
+                security-oriented engineering — including professional
+                internships where I designed, built, and deployed real
+                full-stack applications end to end. I focus on practical
+                problems for businesses and founders: understanding exactly what
+                you need, building it properly, and shipping software that
+                holds up under real use.
               </p>
               <p>
-                Through this studio I work directly with clients — no account
-                managers, no handoffs. Clear communication, honest scope, and
-                no pretending a project includes everything. If something is
-                outside what I can genuinely deliver, I&apos;ll tell you.
+                Through this studio, you work directly with the engineer
+                building your product — no account managers, no handoffs, no
+                layers in between. Clear communication, honest scope, and no
+                pretending a project includes everything. If something falls
+                outside what I can genuinely deliver, I&apos;ll tell you
+                upfront.
               </p>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-4">
@@ -250,7 +252,7 @@ export default function AboutPage() {
             id="experience-heading"
             className="font-display text-2xl font-semibold tracking-tight text-fg sm:text-3xl"
           >
-            Internships &amp; industry exposure
+            Professional experience
           </h2>
 
           <ol className="mt-8 space-y-4">
@@ -293,7 +295,7 @@ export default function AboutPage() {
 
           <div className="mt-6 rounded-2xl border border-line bg-elevated p-6">
             <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-fg-3">
-              Virtual internships &amp; certifications
+              Certifications &amp; training programs
             </h3>
             <ul className="mt-4 grid gap-2.5 sm:grid-cols-2">
               {simulations.map((item) => (
