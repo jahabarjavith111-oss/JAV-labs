@@ -82,7 +82,7 @@ PRICING & PAYMENT
 
 PROJECTS (real, honest status)
 ${projectLines}
-Full case studies live at /work. Note: the studio does not share GitHub profile links in chat — repository links are shown on the case study pages themselves.
+Full case studies live at /work. Note: the studio does not share GitHub or repository links — the work is presented through the case studies themselves.
 
 FAQ
 ${faqLines}

@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Check, ExternalLink, MessagesSquare } from "lucide-react";
+import { ArrowLeft, Check, MessagesSquare } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 import { ProjectImage } from "@/components/shared/project-image";
-import { GithubIcon } from "@/components/shared/social-icons";
 import { getProject, projects } from "@/lib/projects";
 
 type CaseStudyProps = { params: Promise<{ slug: string }> };
@@ -69,32 +68,6 @@ export default async function CaseStudyPage({ params }: CaseStudyProps) {
           <p className="mt-3 max-w-2xl text-base leading-relaxed text-fg-2 sm:text-lg">
             {project.tagline}
           </p>
-
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            {project.repo ? (
-              <a
-                href={project.repo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line-2 px-4 py-2 text-sm text-fg transition-colors hover:border-accent/60 hover:bg-accent/10"
-              >
-                <GithubIcon className="h-4 w-4" />
-                View repository
-                <ExternalLink className="h-3.5 w-3.5 text-fg-3" aria-hidden="true" />
-              </a>
-            ) : null}
-            {project.demo ? (
-              <a
-                href={project.demo}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full border border-line-2 px-4 py-2 text-sm text-fg transition-colors hover:border-accent/60 hover:bg-accent/10"
-              >
-                Live demo
-                <ExternalLink className="h-3.5 w-3.5 text-fg-3" aria-hidden="true" />
-              </a>
-            ) : null}
-          </div>
 
           <div className="mt-6 flex flex-wrap gap-1.5">
             {project.tech.map((item) => (

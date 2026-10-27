@@ -2,8 +2,9 @@
  * Project case studies.
  *
  * Every field here is based on verified information from Abdul Javid's
- * portfolio and public GitHub repositories. Do not add unverified claims —
- * no invented metrics, clients, or outcomes.
+ * portfolio and projects. Do not add unverified claims — no invented
+ * metrics, clients, or outcomes.
+ * The studio does not link to source repositories or GitHub accounts.
  */
 
 export type Project = {
@@ -21,11 +22,10 @@ export type Project = {
   role: string;
   solution: string;
   features: string[];
-  /** Engineering approach, sourced from the portfolio/repository. */
+  /** Engineering approach, sourced from the portfolio. */
   approach: string;
   decisions: string[];
   tech: string[];
-  repo?: string;
   demo?: string;
   /** Longer, honest status explanation for the case study. */
   statusDetails: string;
@@ -64,9 +64,8 @@ export const projects: Project[] = [
       "Every autonomous decision is audit-logged, making the system explainable after the fact.",
     ],
     tech: ["React", "Spring Boot", "MySQL", "Gemini AI", "REST APIs"],
-    repo: "https://github.com/jahabarjavith111-oss/TXNORYX-AI-Risk-Manager-",
     statusDetails:
-      "Active development. The source repository is public.",
+      "Active development. Source code shared on request.",
     images: [
       {
         src: "/images/projects/txnoryx.png",
@@ -105,7 +104,7 @@ export const projects: Project[] = [
     ],
     tech: ["Blockchain", "Decentralized Identity (DID)", "Smart Contracts", "RBAC"],
     statusDetails:
-      "Presented as a showcase project. No public demo or source repository is available at the moment — get in touch if you would like a walkthrough of the concept and architecture.",
+      "Presented as a showcase project. No public demo is available at the moment — get in touch if you would like a walkthrough of the concept and architecture.",
     images: [
       {
         src: "/images/projects/veridex.png",
@@ -153,9 +152,8 @@ export const projects: Project[] = [
       "Docker",
       "AI Copilot",
     ],
-    repo: "https://github.com/jahabarjavith111-oss/CiVIQ-Intelligence-",
     statusDetails:
-      "Active development, currently at MVP stage: the core backend API is implemented against the frontend contract, while 3D IFC import, PDF export, and some realtime features are still being completed. The repository is public.",
+      "Active development, currently at MVP stage: the core backend API is implemented against the frontend contract, while 3D IFC import, PDF export, and some realtime features are still being completed.",
     images: [
       {
         src: "/images/projects/civiq.png",
