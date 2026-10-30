@@ -5,6 +5,7 @@ import { ArrowLeft, Check, MessagesSquare } from "lucide-react";
 import { ButtonLink } from "@/components/shared/button";
 import { ProjectImage } from "@/components/shared/project-image";
 import { getProject, projects } from "@/lib/projects";
+import { siteConfig } from "@/lib/site-config";
 
 type CaseStudyProps = { params: Promise<{ slug: string }> };
 
@@ -22,6 +23,22 @@ export async function generateMetadata({
   return {
     title: `${project.name} — Case Study`,
     description: project.summary,
+    alternates: {
+      canonical: `/work/${project.slug}`,
+    },
+    openGraph: {
+      type: "article",
+      title: `${project.name} — ${siteConfig.name}`,
+      description: project.summary,
+      url: `${siteConfig.siteUrl}/work/${project.slug}`,
+      ...(project.images?.[0]
+        ? {
+            images: [
+              { url: project.images[0].src, alt: project.images[0].alt },
+            ],
+          }
+        : {}),
+    },
   };
 }
 

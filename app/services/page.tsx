@@ -9,7 +9,10 @@ import { processSteps } from "@/lib/process";
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Business websites and landing pages, full-stack web applications, AI applications and automation, and SaaS MVP design and development.",
+    "Business websites and landing pages, full-stack web applications, CRM systems, AI applications and automation, and SaaS MVP design and development.",
+  alternates: {
+    canonical: "/services",
+  },
 };
 
 export default function ServicesPage() {

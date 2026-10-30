@@ -65,11 +65,16 @@ export const metadata: Metadata = {
     title: `${siteConfig.name} — Websites, AI & SaaS Products`,
     description: siteConfig.description,
     locale: "en_US",
+    // og:image / twitter:image come from app/opengraph-image.tsx (auto).
   },
   twitter: {
     card: "summary_large_image",
     title: `${siteConfig.name} — Websites, AI & SaaS Products`,
     description: siteConfig.description,
+  },
+  verification: {
+    /** Google Search Console — HTML-file and meta-tag methods both set. */
+    google: "googled4f91345db5e353e",
   },
   robots: {
     index: true,
@@ -80,6 +85,50 @@ export const metadata: Metadata = {
   },
 };
 
+/**
+ * Schema.org structured data (Organization + WebSite) — helps search
+ * engines understand who runs the site and what it offers.
+ */
+const site = siteConfig.siteUrl;
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": `${site}/#organization`,
+      name: siteConfig.name,
+      url: site,
+      logo: `${site}/images/logo-full.png`,
+      email: siteConfig.email,
+      description: siteConfig.description,
+      areaServed: "Worldwide",
+      knowsAbout: [
+        "Business websites",
+        "Full-stack web applications",
+        "CRM systems",
+        "AI-powered products",
+        "SaaS MVP development",
+      ],
+      sameAs: [siteConfig.links.linkedin],
+      founder: {
+        "@type": "Person",
+        name: "Abdul Javid J.",
+        jobTitle: "Software Engineer",
+        url: `${site}/about`,
+        sameAs: [siteConfig.links.linkedin],
+      },
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${site}/#website`,
+      url: site,
+      name: siteConfig.name,
+      inLanguage: "en",
+      publisher: { "@id": `${site}/#organization` },
+    },
+  ],
+};
+
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
@@ -88,6 +137,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-scroll-behavior="smooth"
     >
       <body className="flex min-h-full flex-col">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-[var(--color-fg)] focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-white"

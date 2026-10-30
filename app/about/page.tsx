@@ -20,6 +20,9 @@ export const metadata: Metadata = {
   title: "About",
   description:
     "Abdul Javid J. — independent software engineer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products.",
+  alternates: {
+    canonical: "/about",
+  },
 };
 
 const focusAreas = [

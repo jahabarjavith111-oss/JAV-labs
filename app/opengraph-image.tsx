@@ -77,7 +77,7 @@ export default function OpengraphImage() {
               maxWidth: 960,
             }}
           >
-            Websites, Web Apps &amp; AI Products
+            Websites, Web Apps, CRMs &amp; AI Products
           </div>
           <div
             style={{
@@ -101,7 +101,8 @@ export default function OpengraphImage() {
             color: "#A8B3C7",
           }}
         >
-          Business Websites · Full-Stack Applications · AI Solutions · SaaS MVPs
+          Business Websites · Full-Stack Applications · CRM Systems · AI
+          Solutions · SaaS MVPs
         </div>
 
         <div

@@ -9,6 +9,9 @@ export const metadata: Metadata = {
   title: "Work — Case Studies",
   description:
     "Case studies for TXNORYX, VERIDEX, and CiVIQ — the problem each project solves, the approach behind it, and its honest current status.",
+  alternates: {
+    canonical: "/work",
+  },
 };
 
 export default function WorkPage() {

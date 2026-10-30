@@ -37,10 +37,9 @@ export const siteConfig = {
   /**
    * Production base URL (no trailing slash).
    * Set NEXT_PUBLIC_SITE_URL when a custom domain is configured —
-   * used only for canonical/OG metadata, robots, and the sitemap.
-   * Left empty on purpose while no domain is chosen.
+   * used for canonical/OG metadata, robots, and the sitemap.
    */
-  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "",
+  siteUrl: process.env.NEXT_PUBLIC_SITE_URL ?? "https://jav-labs.vercel.app",
 } as const;
 
 export type SiteConfig = typeof siteConfig;

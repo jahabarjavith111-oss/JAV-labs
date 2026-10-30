@@ -9,7 +9,10 @@ import { LinkedinIcon } from "@/components/shared/social-icons";
 export const metadata: Metadata = {
   title: "Contact — Start a Project",
   description:
-    "Tell me what you're trying to build. Project inquiry form for websites, web applications, AI products, and SaaS MVPs.",
+    "Tell me what you're trying to build. Project inquiry form for websites, web applications, CRM systems, AI products, and SaaS MVPs.",
+  alternates: {
+    canonical: "/contact",
+  },
 };
 
 const includeItems = [

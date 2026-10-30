@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "Terms & Conditions",
   description:
     "Terms of use for this website, including how quotes, pricing, and project agreements work.",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsPage() {
