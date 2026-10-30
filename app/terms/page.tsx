@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/page-header";
 import { siteConfig } from "@/lib/site-config";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Terms & Conditions",
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/terms",
   },
+  openGraph: pageOpenGraph(
+    "/terms",
+    "Terms & Conditions — JAV Digital Engineering Studio",
+    "Terms of use for this website, including how quotes, pricing, and project agreements work.",
+  ),
 };
 
 export default function TermsPage() {

@@ -4,6 +4,7 @@ import { CaseStudyRow } from "@/components/shared/case-study-row";
 import { Reveal } from "@/components/shared/reveal";
 import { FinalCta } from "@/components/home/final-cta";
 import { projects } from "@/lib/projects";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Work — Case Studies",
@@ -12,6 +13,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/work",
   },
+  openGraph: pageOpenGraph(
+    "/work",
+    "Work — Case Studies — JAV Digital Engineering Studio",
+    "Case studies for TXNORYX, VERIDEX, and CiVIQ — the problem each project solves, the approach behind it, and its honest current status.",
+  ),
 };
 
 export default function WorkPage() {

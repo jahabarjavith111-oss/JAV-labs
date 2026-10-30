@@ -15,6 +15,7 @@ import { ButtonLink } from "@/components/shared/button";
 import { LinkedinIcon } from "@/components/shared/social-icons";
 import { siteConfig } from "@/lib/site-config";
 import { FinalCta } from "@/components/home/final-cta";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "About",
@@ -23,6 +24,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/about",
   },
+  openGraph: pageOpenGraph(
+    "/about",
+    "About — JAV Digital Engineering Studio",
+    "Abdul Javid J. — independent software engineer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products.",
+  ),
 };
 
 const focusAreas = [

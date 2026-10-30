@@ -5,6 +5,7 @@ import { PageHeader } from "@/components/shared/page-header";
 import { ContactForm } from "@/components/contact/contact-form";
 import { siteConfig } from "@/lib/site-config";
 import { LinkedinIcon } from "@/components/shared/social-icons";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact — Start a Project",
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/contact",
   },
+  openGraph: pageOpenGraph(
+    "/contact",
+    "Contact — Start a Project — JAV Digital Engineering Studio",
+    "Tell me what you're trying to build. Project inquiry form for websites, web applications, CRM systems, AI products, and SaaS MVPs.",
+  ),
 };
 
 const includeItems = [

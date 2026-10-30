@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { PageHeader } from "@/components/shared/page-header";
 import { siteConfig } from "@/lib/site-config";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -9,6 +10,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/privacy",
   },
+  openGraph: pageOpenGraph(
+    "/privacy",
+    "Privacy Policy — JAV Digital Engineering Studio",
+    "How this website collects and handles information — an accurate, no-tracking privacy policy.",
+  ),
 };
 
 export default function PrivacyPage() {

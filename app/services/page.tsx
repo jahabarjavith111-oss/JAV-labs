@@ -5,6 +5,7 @@ import { ButtonLink } from "@/components/shared/button";
 import { FinalCta } from "@/components/home/final-cta";
 import { services } from "@/lib/services";
 import { processSteps } from "@/lib/process";
+import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/services",
   },
+  openGraph: pageOpenGraph(
+    "/services",
+    "Services — JAV Digital Engineering Studio",
+    "Business websites and landing pages, full-stack web applications, CRM systems, AI applications and automation, and SaaS MVP design and development.",
+  ),
 };
 
 export default function ServicesPage() {
