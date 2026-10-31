@@ -1,7 +1,31 @@
 # SEO Progress — JAV Digital Engineering Studio
 
 Live site: https://jav-labs.vercel.app
-Last updated: 2026-10-31
+Last updated: 2026-10-31 (after keyword rounds 1 + 2 — latest commit `03c6ca2`)
+
+## Current state snapshot
+
+- Meta keywords: **24 terms** · FAQ questions: **16** (all visible on page)
+- Titles keyword-optimized on all 10 pages; og:url = canonical everywhere
+- Schema: Organization + WebSite + FAQPage(16) + service OfferCatalog(4) +
+  areaServed(6 countries) + keywords · founder jobTitle "Freelance Software
+  Developer"
+- Hero badge: "Remote software company — working with clients worldwide"
+- IndexNow: submitted 2026-10-31 (initial) and **re-submitted 2026-10-31 after
+  keyword updates — HTTP 200 accepted**
+- GSC: homepage indexed; /services requested; **6 URLs still pending quota reset**
+- GSC quota note: resets ≈ 1:30 PM IST next day (midnight Pacific)
+
+### SEO commit log
+
+| Commit | Change |
+|---|---|
+| `0346a8f` | Verification file + meta, canonicals, JSON-LD, OG card, sitemap, robots |
+| `0a454ea` | Untrack redundant root verification copy |
+| `9139e0a` | Per-page og:url + og:title, apple-touch-icon |
+| `aedff95` | IndexNow key file + this progress tracker |
+| `ba9d02c` | Keyword round 1 — freelance/CRM/AI titles, hero/footer, FAQs 11→14, service catalog schema |
+| `03c6ca2` | Keyword round 2 — software company / remote IT / AI solutions, keywords meta → 24, FAQs → 16 |
 
 ## Keyword strategy (added 2026-10-31)
 
@@ -40,7 +64,7 @@ Applied across the site — naturally, no keyword stuffing:
 - [x] Canonical URLs — all 10 pages, og:url matches canonical on every page
 - [x] Unique titles + meta descriptions — every page
 - [x] `index, follow` on every page — verified live
-- [x] JSON-LD — Organization + WebSite + FAQPage (11 questions)
+- [x] JSON-LD — Organization + WebSite + FAQPage (16 questions) + service catalog
 - [x] OG/Twitter share cards — dynamic 1200×630 branded card
 - [x] Apple touch icon — 180×180
 - [x] Internal linking — 0 broken links, all pages reachable
@@ -75,7 +99,8 @@ no manual request needed for those.)
 ## Bing / DuckDuckGo / Yandex — IndexNow (instant submission)
 
 All 10 URLs were submitted on 2026-10-31 via the IndexNow API — Bing et al.
-crawl them within hours, no quota involved.
+crawl them within hours, no quota involved. Re-submitted the same day after
+the keyword updates (HTTP 200 accepted).
 
 - API key: `6b71439dea5f43cc91ead56ff581d826`
 - Key file (must stay hosted forever): `public/6b71439dea5f43cc91ead56ff581d826.txt`
