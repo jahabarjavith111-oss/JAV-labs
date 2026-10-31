@@ -10,7 +10,7 @@ export const siteConfig = {
   tagline: "Building Digital Products. Engineering What's Next.",
 
   description:
-    "JAV Digital Engineering Studio — the independent studio of Abdul Javid J., building business websites, web applications, CRM systems, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
+    "JAV Digital Engineering Studio — a remote software company and the independent studio of Abdul Javid J., building business websites, web applications, CRM systems, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
 
   /** Verified contact email — used by the contact form fallback and footer. */
   email: "jav.digitalstudio2026@gmail.com",

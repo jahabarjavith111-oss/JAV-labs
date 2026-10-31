@@ -17,9 +17,16 @@ Applied across the site — naturally, no keyword stuffing:
   "Work — Web, CRM & AI Case Studies"; /about → "About — Freelance
   Developer"; /contact → "Contact — Hire a Developer"
 - Hero copy lists all five service keywords; footer blurb now includes CRM
-- FAQ expanded 11 → 14 questions: "Are you a freelancer or an agency?",
-  "What technologies do you build with?", "How do I hire you for a project?"
-  (these mirror real search queries; FAQPage schema updates automatically)
+- FAQ expanded 11 → 16 questions: "Are you a freelancer or an agency?",
+  "What technologies do you build with?", "How do I hire you for a project?",
+  "Do you work remotely with clients?", "What kind of AI solutions can you
+  build?" (these mirror real search queries; FAQPage schema updates
+  automatically)
+- Round 2 (2026-10-31): broadened to commercial queries — "software
+  company", "remote software development", "IT services", "AI solutions",
+  "web development company" — in site description, hero ("Remote software
+  company"), footer, keywords meta (24 terms), and schema `knowsAbout` /
+  `keywords`. Woven naturally — no keyword stuffing.
 - Organization schema enriched: keywords, areaServed (US/UK/CA/AU/UAE/IN),
   hasOfferCatalog listing all four services; founder job title "Freelance
   Software Developer"

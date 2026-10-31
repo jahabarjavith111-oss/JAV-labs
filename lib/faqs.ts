@@ -11,6 +11,16 @@ export const faqs: Faq[] = [
       "I'm an independent software engineer — the studio is me, Abdul Javid J. You work directly with the person designing and writing the code: no account managers, no handoffs, no outsourced work. For larger scopes I bring in trusted specialists only when the project genuinely needs it, and you always know exactly who is doing what.",
   },
   {
+    question: "Do you work remotely with clients?",
+    answer:
+      "Yes — remote collaboration is how the studio operates. Projects run over email, messaging, and video calls across time zones, with written proposals, milestone updates, and demo links at every stage, so you always know exactly where the work stands without needing anyone in an office.",
+  },
+  {
+    question: "What kind of AI solutions can you build?",
+    answer:
+      "AI features pointed at real business tasks — document summarization and data extraction, AI chat assistants grounded in your own content, recommendation and scoring systems, AI copilots that act across an application, and automation of repetitive language or judgement-heavy work. Every AI feature is defined with clear success criteria and human review where it matters.",
+  },
+  {
     question: "What types of projects do you accept?",
     answer:
       "Business websites, landing pages, full-stack web applications, SaaS MVPs, AI-powered features, API integrations, and improvements to existing applications. If a project falls outside what I can genuinely deliver well, I will tell you directly instead of taking it on.",

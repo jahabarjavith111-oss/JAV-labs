@@ -37,7 +37,7 @@ export function Hero() {
           {/* Left column — copy */}
           <div className="min-w-0">
             <p className="mb-6 inline-flex w-fit items-center gap-2 rounded-full border border-line bg-card px-4 py-1.5 text-xs font-medium text-fg">
-              Independent studio — working with clients worldwide
+              Remote software company — working with clients worldwide
             </p>
 
             <h1
@@ -51,9 +51,9 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-2 sm:text-lg">
-              We build business websites, full-stack web applications, CRM
-              systems, AI-powered products, and SaaS MVPs for companies and
-              founders worldwide.
+              We&apos;re a remote software company building business websites,
+              full-stack web applications, CRM systems, AI-powered products,
+              and SaaS MVPs for companies and founders worldwide.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
