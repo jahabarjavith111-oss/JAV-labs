@@ -18,16 +18,16 @@ import { FinalCta } from "@/components/home/final-cta";
 import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About — Freelance Developer",
   description:
-    "Abdul Javid J. — independent software engineer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products.",
+    "Abdul Javid J. — freelance software developer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products for clients worldwide.",
   alternates: {
     canonical: "/about",
   },
   openGraph: pageOpenGraph(
     "/about",
-    "About — JAV Digital Engineering Studio",
-    "Abdul Javid J. — independent software engineer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products.",
+    "About — Freelance Developer — JAV Digital Engineering Studio",
+    "Abdul Javid J. — freelance software developer and founder of JAV Digital Engineering Studio, building websites, full-stack applications, CRM systems, and AI-powered products for clients worldwide.",
   ),
 };
 

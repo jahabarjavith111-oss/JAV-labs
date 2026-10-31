@@ -56,7 +56,7 @@ export default function OpengraphImage() {
               JAV Digital Engineering Studio
             </div>
             <div style={{ fontSize: 18, color: "#7C879A" }}>
-              Abdul Javid J. · Websites, AI &amp; SaaS
+              Abdul Javid J. · Freelance Web, CRM &amp; AI Developer
             </div>
           </div>
         </div>

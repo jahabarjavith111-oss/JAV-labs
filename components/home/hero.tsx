@@ -51,8 +51,9 @@ export function Hero() {
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-2 sm:text-lg">
-              We build websites, custom software, and AI-powered products for
-              businesses and ambitious founders.
+              We build business websites, full-stack web applications, CRM
+              systems, AI-powered products, and SaaS MVPs for companies and
+              founders worldwide.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">

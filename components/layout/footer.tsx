@@ -68,8 +68,8 @@ export async function Footer() {
           </Link>
           <p className="mt-4 max-w-xs text-sm leading-relaxed text-fg-2">
             The independent studio of Abdul Javid J. — building business
-            websites, web applications, AI-powered products, and SaaS MVPs
-            for founders and businesses worldwide.
+            websites, web applications, CRM systems, AI-powered products, and
+            SaaS MVPs for founders and businesses worldwide.
           </p>
           <div className="mt-5 flex items-center gap-3">
             <a

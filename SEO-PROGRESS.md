@@ -3,6 +3,28 @@
 Live site: https://jav-labs.vercel.app
 Last updated: 2026-10-31
 
+## Keyword strategy (added 2026-10-31)
+
+Primary target queries (chosen from what clients actually search):
+"freelance web developer", "hire full stack developer", "freelance developer
+India", "CRM development / custom CRM software", "SaaS MVP development",
+"AI application development", "business website development".
+
+Applied across the site — naturally, no keyword stuffing:
+
+- Titles: homepage → "JAV Digital Engineering Studio — Freelance Web, CRM &
+  AI Developer"; /services → "Web & App Development Services"; /work →
+  "Work — Web, CRM & AI Case Studies"; /about → "About — Freelance
+  Developer"; /contact → "Contact — Hire a Developer"
+- Hero copy lists all five service keywords; footer blurb now includes CRM
+- FAQ expanded 11 → 14 questions: "Are you a freelancer or an agency?",
+  "What technologies do you build with?", "How do I hire you for a project?"
+  (these mirror real search queries; FAQPage schema updates automatically)
+- Organization schema enriched: keywords, areaServed (US/UK/CA/AU/UAE/IN),
+  hasOfferCatalog listing all four services; founder job title "Freelance
+  Software Developer"
+- Share card subtitle: "Abdul Javid J. · Freelance Web, CRM & AI Developer"
+
 ## Technical SEO status (ALL DONE ✅)
 
 - [x] Google site verification — file `public/googled4f91345db5e353e.html` + meta tag

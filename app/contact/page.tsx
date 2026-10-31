@@ -8,16 +8,16 @@ import { LinkedinIcon } from "@/components/shared/social-icons";
 import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact — Start a Project",
+  title: "Contact — Hire a Developer",
   description:
-    "Tell me what you're trying to build. Project inquiry form for websites, web applications, CRM systems, AI products, and SaaS MVPs.",
+    "Hire a freelance developer for a business website, web application, CRM system, AI product, or SaaS MVP — tell me what you're building and get an honest, itemized quote.",
   alternates: {
     canonical: "/contact",
   },
   openGraph: pageOpenGraph(
     "/contact",
-    "Contact — Start a Project — JAV Digital Engineering Studio",
-    "Tell me what you're trying to build. Project inquiry form for websites, web applications, CRM systems, AI products, and SaaS MVPs.",
+    "Contact — Hire a Developer — JAV Digital Engineering Studio",
+    "Hire a freelance developer for a business website, web application, CRM system, AI product, or SaaS MVP — tell me what you're building and get an honest, itemized quote.",
   ),
 };
 

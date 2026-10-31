@@ -10,6 +10,7 @@ import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ChatWidget } from "@/components/shared/chat-widget";
 import { siteConfig } from "@/lib/site-config";
+import { services } from "@/lib/services";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -43,33 +44,40 @@ export const metadata: Metadata = {
     ? { metadataBase: new URL(siteConfig.siteUrl) }
     : {}),
   title: {
-    default: `${siteConfig.name} — Websites, AI & SaaS Products`,
+    default: `${siteConfig.name} — Freelance Web, CRM & AI Developer`,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
   keywords: [
     "digital engineering studio",
     "freelance developer",
+    "freelance web developer",
+    "freelance full stack developer",
+    "hire full stack developer",
     "full-stack developer",
-    "web applications",
+    "web application development",
+    "business website development",
     "CRM development",
-    "CRM systems",
+    "CRM software",
+    "custom CRM developer",
     "AI development",
+    "AI automation services",
     "SaaS MVP development",
-    "business websites",
+    "freelance developer India",
+    "software developer Tamil Nadu",
   ],
   openGraph: {
     type: "website",
     ...(siteConfig.siteUrl ? { url: siteConfig.siteUrl } : {}),
     siteName: siteConfig.name,
-    title: `${siteConfig.name} — Websites, AI & SaaS Products`,
+    title: `${siteConfig.name} — Freelance Web, CRM & AI Developer`,
     description: siteConfig.description,
     locale: "en_US",
     // og:image / twitter:image come from app/opengraph-image.tsx (auto).
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Websites, AI & SaaS Products`,
+    title: `${siteConfig.name} — Freelance Web, CRM & AI Developer`,
     description: siteConfig.description,
   },
   verification: {
@@ -87,7 +95,7 @@ export const metadata: Metadata = {
 
 /**
  * Schema.org structured data (Organization + WebSite) — helps search
- * engines understand who runs the site and what it offers.
+ * engines understand who runs the site, what it offers, and where.
  */
 const site = siteConfig.siteUrl;
 const structuredData = {
@@ -101,7 +109,16 @@ const structuredData = {
       logo: `${site}/images/logo-full.png`,
       email: siteConfig.email,
       description: siteConfig.description,
-      areaServed: "Worldwide",
+      keywords:
+        "freelance web developer, freelance full stack developer, CRM development, custom CRM software, AI application development, SaaS MVP development, business website development, web application development",
+      areaServed: [
+        { "@type": "Country", name: "United States" },
+        { "@type": "Country", name: "United Kingdom" },
+        { "@type": "Country", name: "Canada" },
+        { "@type": "Country", name: "Australia" },
+        { "@type": "Country", name: "United Arab Emirates" },
+        { "@type": "Country", name: "India" },
+      ],
       knowsAbout: [
         "Business websites",
         "Full-stack web applications",
@@ -109,11 +126,23 @@ const structuredData = {
         "AI-powered products",
         "SaaS MVP development",
       ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Services",
+        itemListElement: services.map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: service.title,
+            description: service.summary,
+          },
+        })),
+      },
       sameAs: [siteConfig.links.linkedin],
       founder: {
         "@type": "Person",
         name: "Abdul Javid J.",
-        jobTitle: "Software Engineer",
+        jobTitle: "Freelance Software Developer",
         url: `${site}/about`,
         sameAs: [siteConfig.links.linkedin],
       },

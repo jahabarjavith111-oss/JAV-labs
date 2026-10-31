@@ -6,9 +6,19 @@ export type Faq = {
 /** Frequently asked questions — homepage and contact page. */
 export const faqs: Faq[] = [
   {
+    question: "Are you a freelancer or an agency?",
+    answer:
+      "I'm an independent software engineer — the studio is me, Abdul Javid J. You work directly with the person designing and writing the code: no account managers, no handoffs, no outsourced work. For larger scopes I bring in trusted specialists only when the project genuinely needs it, and you always know exactly who is doing what.",
+  },
+  {
     question: "What types of projects do you accept?",
     answer:
       "Business websites, landing pages, full-stack web applications, SaaS MVPs, AI-powered features, API integrations, and improvements to existing applications. If a project falls outside what I can genuinely deliver well, I will tell you directly instead of taking it on.",
+  },
+  {
+    question: "What technologies do you build with?",
+    answer:
+      "Modern, proven web technologies — React and TypeScript on the front end; Next.js, Node.js, FastAPI, or Spring Boot on the back end depending on the project; PostgreSQL or MySQL for data; and AI model APIs such as OpenAI and Gemini for AI features. The stack is chosen during scoping around what your product will need to run reliably and extend later — not around whatever is trendy.",
   },
   {
     question: "Do you work with international clients?",
@@ -54,6 +64,11 @@ export const faqs: Faq[] = [
     question: "Do you provide deployment and handover?",
     answer:
       "Yes — deployment is included where it is part of the agreed scope. You receive the deliverable along with the handover information you need: access, setup notes, and guidance for future changes.",
+  },
+  {
+    question: "How do I hire you for a project?",
+    answer:
+      "Send a message through /contact describing what you're trying to build. You receive an honest assessment of fit, clarifying questions where needed, and an itemized quote before anything begins. Every project starts with an approved proposal — never before.",
   },
   {
     question: "What information should I include when contacting you?",

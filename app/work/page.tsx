@@ -7,7 +7,7 @@ import { projects } from "@/lib/projects";
 import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Work — Case Studies",
+  title: "Work — Web, CRM & AI Case Studies",
   description:
     "Case studies for TXNORYX, VERIDEX, and CiVIQ — the problem each project solves, the approach behind it, and its honest current status.",
   alternates: {
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   },
   openGraph: pageOpenGraph(
     "/work",
-    "Work — Case Studies — JAV Digital Engineering Studio",
+    "Work — Web, CRM & AI Case Studies — JAV Digital Engineering Studio",
     "Case studies for TXNORYX, VERIDEX, and CiVIQ — the problem each project solves, the approach behind it, and its honest current status.",
   ),
 };

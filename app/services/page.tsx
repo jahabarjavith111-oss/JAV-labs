@@ -8,7 +8,7 @@ import { processSteps } from "@/lib/process";
 import { pageOpenGraph } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Web & App Development Services",
   description:
     "Business websites and landing pages, full-stack web applications, CRM systems, AI applications and automation, and SaaS MVP design and development.",
   alternates: {
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   },
   openGraph: pageOpenGraph(
     "/services",
-    "Services — JAV Digital Engineering Studio",
+    "Web & App Development Services — JAV Digital Engineering Studio",
     "Business websites and landing pages, full-stack web applications, CRM systems, AI applications and automation, and SaaS MVP design and development.",
   ),
 };

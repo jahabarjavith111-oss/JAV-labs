@@ -12,7 +12,7 @@ import { faqs } from "@/lib/faqs";
 export const metadata: Metadata = {
   title: {
     absolute:
-      "JAV Digital Engineering Studio — Websites, Web Apps, CRMs & AI Products",
+      "JAV Digital Engineering Studio — Freelance Web, CRM & AI Developer",
   },
   description:
     "Independent studio building business websites, full-stack web applications, CRM systems, AI-powered products, and SaaS MVPs for founders and businesses worldwide.",
