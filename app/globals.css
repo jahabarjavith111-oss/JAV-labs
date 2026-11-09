@@ -17,7 +17,9 @@
   /* Text */
   --color-fg: #eef2f8;
   --color-fg-2: #a3adc0;
-  --color-fg-3: #6d7789;
+  /* Tertiary text — must clear 4.5:1 on every dark surface
+     (base #05070d, elevated #090d16, card #0c111d, ink-2 #121a2c). */
+  --color-fg-3: #7a8496;
 
   /* Accents — JAV logo blue/cyan, brightened for dark surfaces */
   --color-accent: #2f7bff;
@@ -275,5 +277,225 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Smooth scroll (Lenis) — required classes
+   --------------------------------------------------------------- */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent],
+.lenis [data-lenis-prevent-wheel],
+.lenis [data-lenis-prevent-touch],
+.lenis [data-lenis-prevent-vertical],
+.lenis [data-lenis-prevent-horizontal] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
+
+/* Intro lock — no scrolling while the preloader is up (native fallback
+   alongside lenis.stop()). */
+html.intro-lock,
+html.intro-lock body {
+  overflow: hidden !important;
+}
+
+/* ---------------------------------------------------------------
+   Preloader — counter + curtain lift
+   The failsafe keyframe is only ever seen when JavaScript fails:
+   the component sets `animation: none` as soon as it mounts.
+   --------------------------------------------------------------- */
+.preloader {
+  transform: translateY(0);
+  transition: transform 0.85s cubic-bezier(0.76, 0, 0.24, 1);
+  animation: preloader-failsafe 5s forwards;
+}
+
+.preloader[data-phase="lift"] {
+  transform: translateY(-100%);
+}
+
+.preloader > * {
+  transition: opacity 0.4s ease;
+}
+
+.preloader[data-phase="lift"] > * {
+  opacity: 0;
+}
+
+@keyframes preloader-failsafe {
+  0%,
+  60% {
+    transform: translateY(0);
+    visibility: visible;
+  }
+  99% {
+    transform: translateY(-100%);
+    visibility: visible;
+  }
+  100% {
+    transform: translateY(-100%);
+    visibility: hidden;
+    pointer-events: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Page transition — subtle fade-and-rise per route change
+   --------------------------------------------------------------- */
+.page-enter {
+  animation: page-in 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Word-mask headline reveal (RevealText)
+   Default state is fully visible — SSR and no-JS stay readable;
+   JS only arms headings that start off-screen.
+   --------------------------------------------------------------- */
+.rw {
+  display: inline;
+}
+
+.rw-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* Room for descenders/italic swashes so masks never clip them. */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+
+.rw-word {
+  display: inline-block;
+  will-change: transform;
+}
+
+.rw[data-reveal="armed"] .rw-word {
+  transform: translateY(112%);
+  opacity: 0;
+  transition: none;
+}
+
+.rw[data-reveal="visible"] .rw-word {
+  transform: translateY(0);
+  opacity: 1;
+  transition:
+    transform 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.55s ease;
+}
+
+/* Immediate (hero) mode — pure CSS, plays from first paint, sequenced
+   with the preloader lift via inline animation-delay. */
+.rw[data-immediate] .rw-word {
+  animation: rw-rise 0.95s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes rw-rise {
+  from {
+    transform: translateY(112%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* ---------------------------------------------------------------
+   Marquee — pause on hover; oversized band runs slower
+   --------------------------------------------------------------- */
+.marquee:hover .marquee-track {
+  animation-play-state: paused;
+}
+
+.marquee-xl .marquee-track {
+  animation-duration: 52s;
+}
+
+/* ---------------------------------------------------------------
+   Film grain — fixed overlay above everything (pointer-events: none).
+   Oversized layer + transform-only steps so it stays composited.
+   Static (no animation) on touch devices and reduced motion.
+   --------------------------------------------------------------- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: -25%;
+  z-index: 100;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 170px 170px;
+  opacity: 0.05;
+  animation: grain-shift 1.4s steps(4) infinite;
+}
+
+@media (hover: none) {
+  body::after {
+    animation: none;
+  }
+}
+
+@keyframes grain-shift {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+
+/* ---------------------------------------------------------------
+   Reduced motion — static equivalents for the new effects
+   --------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  .rw .rw-word {
+    transform: none !important;
+    opacity: 1 !important;
+    transition: none !important;
+    /* Kill the delay too — content must appear immediately. */
+    animation: none !important;
+  }
+
+  .page-enter {
+    animation: none !important;
+  }
+
+  .preloader {
+    transition-duration: 0.01ms;
+  }
+
+  body::after {
+    animation: none !important;
   }
 }

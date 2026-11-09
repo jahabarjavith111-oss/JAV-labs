@@ -39,7 +39,7 @@ export function FaqList({ items }: { items: Faq[] }) {
               onClick={() => toggle(index)}
               aria-expanded={isOpen}
               aria-controls={panelId}
-              className="flex w-full cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-left text-sm font-medium text-fg transition-colors hover:text-accent-2 sm:px-6 sm:text-base"
+              className="flex w-full cursor-pointer list-none items-center justify-between gap-4 px-5 py-5 text-left text-sm font-medium text-fg transition-colors hover:text-accent-2 sm:px-6 sm:text-[16px]"
             >
               {item.question}
               <ChevronDown

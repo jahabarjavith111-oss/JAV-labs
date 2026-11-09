@@ -24,7 +24,8 @@ export function CaseStudyRow({ project, reversed = false }: CaseStudyRowProps) {
         href={`/work/${project.slug}`}
         tabIndex={-1}
         aria-hidden="true"
-        className={`relative block overflow-hidden rounded-2xl border border-line transition-colors duration-300 group-hover:border-line-2 ${
+        data-cursor="View"
+        className={`group/img relative block overflow-hidden rounded-2xl border border-line transition-colors duration-300 group-hover:border-line-2 ${
           reversed ? "lg:order-2" : ""
         }`}
       >
@@ -32,8 +33,14 @@ export function CaseStudyRow({ project, reversed = false }: CaseStudyRowProps) {
           src={image?.src}
           alt={image?.alt ?? `${project.name} project cover`}
           slotHint={`Add a screenshot at public/images/projects/${project.slug}.png`}
-          className="aspect-video !rounded-none !border-0 transition-transform duration-500 group-hover:scale-[1.02]"
+          className="aspect-video !rounded-none !border-0 transition-transform duration-700 ease-out group-hover/img:scale-105"
         />
+        {/* Hover scrim + chip */}
+        <span className="pointer-events-none absolute inset-0 flex items-center justify-center bg-gradient-to-t from-black/40 via-transparent to-black/10 opacity-0 transition-opacity duration-300 group-hover/img:opacity-100">
+          <span className="translate-y-2 rounded-full border border-white/40 bg-black/35 px-5 py-2 font-mono text-[11px] uppercase tracking-[0.18em] text-white backdrop-blur-sm transition-transform duration-300 group-hover/img:translate-y-0">
+            View project
+          </span>
+        </span>
       </Link>
 
       {/* Content */}
@@ -75,7 +82,7 @@ export function CaseStudyRow({ project, reversed = false }: CaseStudyRowProps) {
           <Link
             href={`/work/${project.slug}`}
             className="group/link inline-flex items-center gap-2 rounded-xl bg-fg px-5 py-2.5 text-sm font-semibold text-base transition-colors hover:bg-accent hover:text-white"
-            aria-label={`View the ${project.name} case study`}
+            aria-label="View project"
           >
             View case study
             <ArrowRight

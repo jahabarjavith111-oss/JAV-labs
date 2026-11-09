@@ -2,6 +2,8 @@
 
 import dynamic from "next/dynamic";
 import { ButtonLink } from "@/components/shared/button";
+import { Magnetic } from "@/components/shared/magnetic";
+import { RevealText } from "@/components/shared/reveal-text";
 
 /**
  * The 3D globe is loaded client-side only — it never blocks SSR,
@@ -66,10 +68,19 @@ export function Hero() {
               id="hero-heading"
               className="font-display text-[clamp(38px,5.6vw,68px)] font-bold leading-[1.05] tracking-[-0.035em] text-balance text-fg"
             >
-              Ideas into products.{" "}
-              <span className="serif-accent text-accent-bright">
-                Complexity into clarity.
-              </span>
+              <RevealText
+                immediate
+                baseDelay={760}
+                stagger={60}
+                parts={[
+                  { text: "Ideas into products." },
+                  {
+                    text: "Complexity into clarity.",
+                    className: "serif-accent text-accent-bright",
+                    breakBefore: true,
+                  },
+                ]}
+              />
             </h1>
 
             <p className="mt-5 max-w-xl text-base leading-relaxed text-fg-2 sm:text-lg">
@@ -79,16 +90,20 @@ export function Hero() {
             </p>
 
             <div className="mt-8 flex flex-wrap items-center gap-4">
-              <ButtonLink href="/contact" className="px-7 py-3.5">
-                Tell Us What You&apos;re Building
-              </ButtonLink>
-              <ButtonLink
-                href="/work"
-                variant="outline"
-                className="px-7 py-3.5"
-              >
-                Explore Our Work
-              </ButtonLink>
+              <Magnetic>
+                <ButtonLink href="/contact" className="px-7 py-3.5">
+                  Tell Us What You&apos;re Building
+                </ButtonLink>
+              </Magnetic>
+              <Magnetic>
+                <ButtonLink
+                  href="/work"
+                  variant="outline"
+                  className="px-7 py-3.5"
+                >
+                  Explore Our Work
+                </ButtonLink>
+              </Magnetic>
             </div>
           </div>
 

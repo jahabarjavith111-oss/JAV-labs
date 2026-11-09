@@ -21,7 +21,7 @@ export function ServiceCard({
   return (
     <article
       id={`card-${service.slug}`}
-      className={`group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition-colors duration-200 hover:border-line-2 sm:p-7 ${className}`}
+      className={`group flex h-full flex-col rounded-2xl border border-line bg-card p-6 transition duration-300 hover:-translate-y-1.5 hover:border-line-2 hover:shadow-[0_24px_60px_-30px_rgba(47,123,255,0.4)] sm:p-7 ${className}`}
     >
       <span className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-line bg-elevated text-accent-2 transition-colors group-hover:border-accent/50">
         <Icon className="h-5 w-5" aria-hidden="true" />
@@ -55,9 +55,8 @@ export function ServiceCard({
         <Link
           href={`/services#${service.slug}`}
           className="inline-flex items-center gap-1.5 text-sm font-medium text-fg transition-colors hover:text-accent-2"
-          aria-label={`Learn more about ${service.title}`}
         >
-          Learn more
+          Learn more about {service.title}
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       </div>

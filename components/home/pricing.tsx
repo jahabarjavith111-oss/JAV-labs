@@ -20,7 +20,7 @@ export function Pricing() {
           >
             {pricing.headline}
           </h2>
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-fg-2 sm:text-base">
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-fg-2 sm:text-[16px]">
             {pricing.description}
           </p>
 

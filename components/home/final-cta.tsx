@@ -1,4 +1,6 @@
 import { ButtonLink } from "@/components/shared/button";
+import { Magnetic } from "@/components/shared/magnetic";
+import { RevealText } from "@/components/shared/reveal-text";
 
 /** Closing call to action shared across sections. */
 export function FinalCta() {
@@ -17,8 +19,16 @@ export function FinalCta() {
           id="cta-heading"
           className="mx-auto max-w-2xl font-display text-[clamp(34px,4.8vw,58px)] font-bold leading-[1.06] tracking-[-0.03em] text-balance text-fg"
         >
-          Have an Idea?{" "}
-          <span className="serif-accent text-accent">Let&apos;s Build It.</span>
+          <RevealText
+            parts={[
+              { text: "Have an Idea?" },
+              {
+                text: "Let's Build It.",
+                className: "serif-accent text-accent",
+                breakBefore: false,
+              },
+            ]}
+          />
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-fg-2">
           Tell us what you&apos;re trying to build, the problem you&apos;re
@@ -26,10 +36,16 @@ export function FinalCta() {
           requirements and discuss the next steps.
         </p>
         <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-          <ButtonLink href="/contact">Tell Us What You&apos;re Building</ButtonLink>
-          <ButtonLink href="/work" variant="outline">
-            Explore Our Work
-          </ButtonLink>
+          <Magnetic>
+            <ButtonLink href="/contact">
+              Tell Us What You&apos;re Building
+            </ButtonLink>
+          </Magnetic>
+          <Magnetic>
+            <ButtonLink href="/work" variant="outline">
+              Explore Our Work
+            </ButtonLink>
+          </Magnetic>
         </div>
       </div>
     </section>

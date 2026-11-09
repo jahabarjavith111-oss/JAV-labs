@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { RevealText } from "@/components/shared/reveal-text";
 
 type PageHeaderProps = {
   eyebrow: string;
@@ -17,7 +18,7 @@ export function PageHeader({ eyebrow, title, description }: PageHeaderProps) {
       <div className="shell relative pt-[124px] pb-16 sm:pt-[148px] sm:pb-20">
         <p className="label-mono mb-4 text-accent-2">{eyebrow}</p>
         <h1 className="max-w-3xl font-display text-[clamp(34px,4.6vw,56px)] font-bold leading-[1.06] tracking-[-0.03em] text-balance text-fg">
-          {title}
+          {typeof title === "string" ? <RevealText text={title} /> : title}
         </h1>
         {description ? (
           <p className="mt-5 max-w-2xl text-base leading-relaxed text-fg-2 sm:text-lg">

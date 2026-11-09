@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Mail, MapPin } from "lucide-react";
+import { ArrowUpRight, Mail, MapPin } from "lucide-react";
 import { footerNav, legalNav } from "@/lib/navigation";
 import { featuredServices } from "@/lib/services";
 import { siteConfig } from "@/lib/site-config";
@@ -47,6 +47,20 @@ export async function Footer() {
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Giant contact closer — the Lusion-style closing statement */}
+      <div className="shell pt-12 sm:pt-16">
+        <a
+          href={`mailto:${siteConfig.email}`}
+          className="group flex w-fit max-w-full items-center gap-3 font-display text-[clamp(46px,9.5vw,132px)] font-bold leading-none tracking-[-0.045em] text-fg transition-colors duration-300 hover:text-accent-bright sm:gap-5"
+        >
+          Let&apos;s talk
+          <ArrowUpRight
+            className="h-[0.55em] w-[0.55em] shrink-0 text-fg-3 transition-all duration-300 group-hover:-translate-y-2 group-hover:translate-x-2 group-hover:text-accent-bright"
+            aria-hidden="true"
+          />
+        </a>
       </div>
 
       <div className="shell grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">

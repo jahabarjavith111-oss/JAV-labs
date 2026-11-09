@@ -161,6 +161,7 @@ function GlobeScene({ reduced }: SceneProps) {
   const spinRef = useRef<THREE.Group>(null);
   const ringsRef = useRef<THREE.Group>(null);
   const halosRef = useRef<THREE.Group>(null);
+  const lastScroll = useRef(0);
 
   const gridGeometry = useMemo(() => buildGridGeometry(), []);
   const dotGeometry = useMemo(() => buildDotGeometry(620), []);
@@ -179,6 +180,17 @@ function GlobeScene({ reduced }: SceneProps) {
 
   useFrame((state, delta) => {
     const t = state.clock.elapsedTime;
+
+    // Scroll linkage — the globe and rings respond to page scroll,
+    // tying the 3D scene to the storytelling (skipped for reduced motion).
+    const scrollY = window.scrollY;
+    const scrollDelta = scrollY - lastScroll.current;
+    lastScroll.current = scrollY;
+
+    if (!reduced && Math.abs(scrollDelta) > 0.5) {
+      if (spinRef.current) spinRef.current.rotation.y += scrollDelta * 0.00055;
+      if (ringsRef.current) ringsRef.current.rotation.y -= scrollDelta * 0.00028;
+    }
 
     if (!reduced) {
       if (spinRef.current) spinRef.current.rotation.y += delta * 0.11;
@@ -337,6 +349,8 @@ function supportsWebGL() {
 export function Globe() {
   const [reduced, setReduced] = useState(false);
   const [webgl, setWebgl] = useState<boolean | null>(null);
+  const [visible, setVisible] = useState(true);
+  const hostRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const query = window.matchMedia("(prefers-reduced-motion: reduce)");
@@ -349,6 +363,19 @@ export function Globe() {
     }
     query.addEventListener("change", onChange);
     return () => query.removeEventListener("change", onChange);
+  }, []);
+
+  // Pause rendering entirely once the globe scrolls out of view —
+  // zero GPU/CPU cost below the fold, resumes instantly on return.
+  useEffect(() => {
+    const host = hostRef.current;
+    if (!host || typeof IntersectionObserver === "undefined") return;
+    const observer = new IntersectionObserver(
+      (entries) => setVisible(entries[0]?.isIntersecting ?? true),
+      { threshold: 0 },
+    );
+    observer.observe(host);
+    return () => observer.disconnect();
   }, []);
 
   // Static branded fallback while detecting or when WebGL is missing.
@@ -375,7 +402,7 @@ export function Globe() {
   }
 
   return (
-    <div aria-hidden="true" className="relative h-full w-full">
+    <div ref={hostRef} aria-hidden="true" className="relative h-full w-full">
       <Canvas
         dpr={[1, 1.75]}
         camera={{ position: [0, 0, 5], fov: 40 }}
@@ -384,7 +411,7 @@ export function Globe() {
           alpha: true,
           powerPreference: "high-performance",
         }}
-        frameloop={reduced ? "demand" : "always"}
+        frameloop={reduced || !visible ? "demand" : "always"}
         style={{ background: "transparent" }}
       >
         <Suspense fallback={null}>

@@ -13,7 +13,7 @@ const variants: Record<Variant, string> = {
   primary: "bg-fg text-base hover:bg-accent hover:text-white",
   outline:
     "border border-line-2 text-fg hover:border-fg hover:bg-fg hover:text-base",
-  light: "bg-accent text-white hover:bg-accent-bright hover:text-base",
+  light: "bg-accent text-base hover:bg-accent-bright hover:text-base",
   ghost: "text-fg-2 underline-offset-4 hover:text-fg hover:underline",
 };
 

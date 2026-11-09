@@ -9,6 +9,11 @@ import "./globals.css";
 import { Navbar } from "@/components/layout/navbar";
 import { Footer } from "@/components/layout/footer";
 import { ChatWidget } from "@/components/shared/chat-widget";
+import { SmoothScroll } from "@/components/shared/smooth-scroll";
+import { ScrollProgress } from "@/components/shared/scroll-progress";
+import { Preloader } from "@/components/shared/preloader";
+import { PageFade } from "@/components/shared/page-fade";
+import { Cursor } from "@/components/shared/cursor";
 import { siteConfig } from "@/lib/site-config";
 import { services } from "@/lib/services";
 
@@ -97,7 +102,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   other: {
-    "theme-color": "#0a0d12",
+    "theme-color": "#05070d",
   },
 };
 
@@ -180,6 +185,10 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
+        {/* Motion system — smooth scroll first so the preloader can pause it */}
+        <SmoothScroll />
+        <ScrollProgress />
+        <Preloader />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:rounded-full focus:bg-[var(--color-fg)] focus:px-5 focus:py-2.5 focus:text-sm focus:font-medium focus:text-base"
@@ -188,10 +197,11 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         </a>
         <Navbar />
         <main id="main-content" className="flex-1">
-          {children}
+          <PageFade>{children}</PageFade>
         </main>
         <Footer />
         <ChatWidget />
+        <Cursor />
       </body>
     </html>
   );

@@ -65,8 +65,7 @@ export function Navbar() {
           <Link
             href="/"
             className="group flex items-center gap-2.5 rounded-full py-1 pl-1 pr-2"
-            aria-label={`${siteConfig.name} — home`}
-          >
+            >
             <span className="flex h-9 w-[72px] shrink-0 items-center justify-center overflow-hidden rounded-[11px] bg-black ring-1 ring-line">
               <Image
                 src="/images/logo-mark.png"
@@ -77,7 +76,7 @@ export function Navbar() {
                 className="h-auto w-[62px]"
               />
             </span>
-            <span className="hidden flex-col leading-tight sm:flex">
+            <span className="flex flex-col leading-tight sm:flex">
               <span className="font-display text-sm font-semibold tracking-tight text-fg">
                 {siteConfig.shortName}
               </span>
@@ -95,13 +94,20 @@ export function Navbar() {
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className={`rounded-full px-4 py-2 text-[14.5px] transition-colors duration-200 ${
+                    className={`group relative rounded-full px-4 py-2 text-[14.5px] transition-colors duration-200 ${
                       isActive(item.href)
                         ? "bg-fg/[0.07] font-semibold text-fg"
                         : "font-medium text-fg hover:text-accent-2"
                     }`}
                   >
                     {item.label}
+                    {/* Underline sweep */}
+                    <span
+                      aria-hidden="true"
+                      className={`absolute inset-x-4 bottom-0.5 h-px origin-left bg-accent-bright transition-transform duration-300 ease-out group-hover:scale-x-100 ${
+                        isActive(item.href) ? "scale-x-100" : "scale-x-0"
+                      }`}
+                    />
                   </Link>
                 </li>
               ))}

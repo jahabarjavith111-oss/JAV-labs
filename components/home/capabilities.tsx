@@ -71,7 +71,7 @@ export function Capabilities() {
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {capabilityGroups.map((group, index) => (
             <Reveal key={group.title} delay={index * 70} className="h-full">
-              <article className="glass edge-glow flex h-full flex-col rounded-2xl p-6">
+              <article className="glass edge-glow flex h-full flex-col rounded-2xl p-6 transition duration-300 hover:-translate-y-1.5 hover:border-accent/40 hover:shadow-[0_24px_60px_-30px_rgba(47,123,255,0.45)]">
                 <h3 className="font-display text-lg font-semibold text-fg">
                   {group.title}
                 </h3>
