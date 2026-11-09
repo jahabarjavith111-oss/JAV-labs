@@ -48,15 +48,15 @@ export function ProcessPreview() {
             return (
               <div
                 key={promise.title}
-                className="rounded-2xl border border-line bg-fg p-6 text-white"
+                className="edge-glow rounded-2xl border border-accent/30 bg-gradient-to-b from-accent/15 to-card p-6"
               >
                 <span className="mb-4 flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 text-accent-bright">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </span>
-                <h3 className="font-display text-base font-semibold">
+                <h3 className="font-display text-base font-semibold text-fg">
                   {promise.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/75">
+                <p className="mt-2 text-sm leading-relaxed text-fg-2">
                   {promise.text}
                 </p>
               </div>

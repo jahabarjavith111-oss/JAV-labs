@@ -1,30 +1,33 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------
-   Design tokens — JAV Digital Engineering Studio
-   surface #fbfaf7 (warm white) · ink #0a0d12 (near-black)
-   editorial black/white/gray + one accent (logo blue)
+   Design tokens — JAV Digital Engineering Studio · "Orbital" theme
+   deep-space dark surfaces · high-contrast text · logo blue/cyan
+   accents · glassy hairline borders
    --------------------------------------------------------------- */
 @theme {
   /* Surfaces */
-  --color-base: #fbfaf7;
-  --color-elevated: #f3f1ea;
-  --color-card: #ffffff;
+  --color-base: #05070d;
+  --color-elevated: #090d16;
+  --color-card: #0c111d;
+  /* Always-dark panel (chat, banners) — independent of fg inversion */
+  --color-ink: #0a0e18;
+  --color-ink-2: #121a2c;
 
   /* Text */
-  --color-fg: #0a0d12;
-  --color-fg-2: #545b66;
-  --color-fg-3: #848b94;
+  --color-fg: #eef2f8;
+  --color-fg-2: #a3adc0;
+  --color-fg-3: #6d7789;
 
-  /* Accents — sampled from the JAV logo swoosh */
-  --color-accent: #0069de;
-  --color-accent-2: #0052c4;
+  /* Accents — JAV logo blue/cyan, brightened for dark surfaces */
+  --color-accent: #2f7bff;
+  --color-accent-2: #6aa5ff;
   /* Vivid logo cyan — for accent text on ink surfaces */
-  --color-accent-bright: #00c2fd;
+  --color-accent-bright: #38d6ff;
 
   /* Borders */
-  --color-line: #e5e3dc;
-  --color-line-2: #cfccc2;
+  --color-line: rgba(255, 255, 255, 0.08);
+  --color-line-2: rgba(255, 255, 255, 0.17);
 }
 
 @theme inline {
@@ -36,7 +39,7 @@
 
 @layer base {
   html {
-    color-scheme: light;
+    color-scheme: dark;
     scroll-behavior: smooth;
     scroll-padding-top: 6.5rem;
   }
@@ -46,17 +49,46 @@
     color: var(--color-fg);
     font-family: var(--font-sans);
     text-rendering: optimizeLegibility;
+    /* Cinematic base — faint radial aurora behind everything */
+    background-image:
+      radial-gradient(
+        ellipse 90% 60% at 50% -10%,
+        rgba(47, 123, 255, 0.13),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 50% 40% at 90% 10%,
+        rgba(56, 214, 255, 0.06),
+        transparent 65%
+      );
+    background-attachment: fixed;
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--color-accent) 24%, transparent);
+    background-color: color-mix(in srgb, var(--color-accent-bright) 30%, transparent);
     color: var(--color-fg);
   }
 
   :focus-visible {
-    outline: 2px solid var(--color-accent-2);
+    outline: 2px solid var(--color-accent-bright);
     outline-offset: 2px;
     border-radius: 2px;
+  }
+
+  /* Slim dark scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1c2536;
+    border-radius: 999px;
+    border: 2px solid var(--color-base);
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2a354d;
   }
 }
 
@@ -118,6 +150,94 @@
     filter: blur(90px);
     opacity: 0.14;
     pointer-events: none;
+  }
+
+  /* Glass panel — dark card with soft inner light */
+  .glass {
+    background: linear-gradient(
+      165deg,
+      rgba(255, 255, 255, 0.045),
+      rgba(255, 255, 255, 0.015) 45%,
+      rgba(255, 255, 255, 0.005)
+    );
+    border: 1px solid var(--color-line);
+    backdrop-filter: blur(14px);
+  }
+
+  /* Gradient hairline — accent-lit top edge for panels */
+  .edge-glow {
+    position: relative;
+  }
+  .edge-glow::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      color-mix(in srgb, var(--color-accent-bright) 55%, transparent),
+      transparent
+    );
+    pointer-events: none;
+  }
+
+  /* Infinite tech marquee (paused for reduced motion via global rule) */
+  .marquee {
+    overflow: hidden;
+    mask-image: linear-gradient(
+      90deg,
+      transparent,
+      black 8%,
+      black 92%,
+      transparent
+    );
+  }
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee-scroll 36s linear infinite;
+  }
+
+  /* Scroll-to-explore cue */
+  .scroll-cue {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .scroll-cue::after {
+    content: "";
+    width: 1px;
+    height: 44px;
+    background: linear-gradient(
+      to bottom,
+      var(--color-accent-bright),
+      transparent
+    );
+    animation: cue-drop 2.1s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+    transform-origin: top;
+  }
+
+  @keyframes marquee-scroll {
+    to {
+      transform: translateX(-50%);
+    }
+  }
+
+  @keyframes cue-drop {
+    0% {
+      transform: scaleY(0);
+      opacity: 0;
+    }
+    35% {
+      transform: scaleY(1);
+      opacity: 1;
+    }
+    100% {
+      transform: scaleY(1) translateY(14px);
+      opacity: 0;
+    }
   }
 
   /* Subtle scroll-reveal — paired with <Reveal> (IntersectionObserver) */

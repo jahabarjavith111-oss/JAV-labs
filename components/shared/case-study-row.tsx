@@ -74,7 +74,7 @@ export function CaseStudyRow({ project, reversed = false }: CaseStudyRowProps) {
         <div className="mt-8">
           <Link
             href={`/work/${project.slug}`}
-            className="group/link inline-flex items-center gap-2 rounded-xl bg-fg px-5 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent"
+            className="group/link inline-flex items-center gap-2 rounded-xl bg-fg px-5 py-2.5 text-sm font-semibold text-base transition-colors hover:bg-accent hover:text-white"
             aria-label={`View the ${project.name} case study`}
           >
             View case study

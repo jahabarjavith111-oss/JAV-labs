@@ -174,7 +174,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.name))}`}
           />
           {errors.name ? (
-            <p id="name-error" className="mt-1.5 text-xs text-red-600">
+            <p id="name-error" className="mt-1.5 text-xs text-red-400">
               {errors.name}
             </p>
           ) : null}
@@ -197,7 +197,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.email))}`}
           />
           {errors.email ? (
-            <p id="email-error" className="mt-1.5 text-xs text-red-600">
+            <p id="email-error" className="mt-1.5 text-xs text-red-400">
               {errors.email}
             </p>
           ) : null}
@@ -257,7 +257,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.projectType ? (
-            <p id="projectType-error" className="mt-1.5 text-xs text-red-600">
+            <p id="projectType-error" className="mt-1.5 text-xs text-red-400">
               {errors.projectType}
             </p>
           ) : null}
@@ -286,7 +286,7 @@ export function ContactForm() {
             ))}
           </select>
           {errors.budget ? (
-            <p id="budget-error" className="mt-1.5 text-xs text-red-600">
+            <p id="budget-error" className="mt-1.5 text-xs text-red-400">
               {errors.budget}
             </p>
           ) : (
@@ -317,7 +317,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.timeline))}`}
           />
           {errors.timeline ? (
-            <p id="timeline-error" className="mt-1.5 text-xs text-red-600">
+            <p id="timeline-error" className="mt-1.5 text-xs text-red-400">
               {errors.timeline}
             </p>
           ) : (
@@ -344,7 +344,7 @@ export function ContactForm() {
             className={`${inputClass} resize-y ${errorClass(Boolean(errors.message))}`}
           />
           {errors.message ? (
-            <p id="message-error" className="mt-1.5 text-xs text-red-600">
+            <p id="message-error" className="mt-1.5 text-xs text-red-400">
               {errors.message}
             </p>
           ) : null}
@@ -367,7 +367,7 @@ export function ContactForm() {
             className={`${inputClass} ${errorClass(Boolean(errors.reference))}`}
           />
           {errors.reference ? (
-            <p id="reference-error" className="mt-1.5 text-xs text-red-600">
+            <p id="reference-error" className="mt-1.5 text-xs text-red-400">
               {errors.reference}
             </p>
           ) : null}
@@ -380,11 +380,11 @@ export function ContactForm() {
           role="alert"
           className="mt-6 rounded-lg border border-amber-500/40 bg-amber-500/10 p-4"
         >
-          <p className="text-sm font-medium text-amber-900">
+          <p className="text-sm font-medium text-amber-200">
             The form isn&apos;t connected yet — your message has{" "}
             <strong>not</strong> been sent.
           </p>
-          <p className="mt-1.5 text-sm text-amber-800">
+          <p className="mt-1.5 text-sm text-amber-300/90">
             Please email directly instead, or configure{" "}
             <code className="rounded bg-amber-500/15 px-1">
               SMTP_PASS

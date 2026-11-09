@@ -6,13 +6,14 @@ type Variant = "primary" | "outline" | "light" | "ghost";
 
 /**
  * Minimal, high-contrast, consistent across the site:
- * solid ink primary · hairline outline secondary ·
- * solid white on dark surfaces · bare text ghost.
+ * solid light-on-dark primary · hairline outline secondary ·
+ * solid accent on dark surfaces · bare text ghost.
  */
 const variants: Record<Variant, string> = {
-  primary: "bg-fg text-white hover:bg-accent",
-  outline: "border border-line-2 text-fg hover:border-fg hover:bg-fg hover:text-white",
-  light: "bg-white text-fg hover:bg-accent hover:text-white",
+  primary: "bg-fg text-base hover:bg-accent hover:text-white",
+  outline:
+    "border border-line-2 text-fg hover:border-fg hover:bg-fg hover:text-base",
+  light: "bg-accent text-white hover:bg-accent-bright hover:text-base",
   ghost: "text-fg-2 underline-offset-4 hover:text-fg hover:underline",
 };
 

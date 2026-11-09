@@ -53,8 +53,8 @@ export function Approach() {
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-14">
           <div className="lg:col-span-2">
             <SectionHeading
-              eyebrow="Approach"
-              title="A direct, practical way to work"
+              eyebrow="Why JAV"
+              title="Why clients choose JAV"
               description="You get a clear process, honest answers, and a product built around real business needs — not unnecessary complexity."
             />
           </div>

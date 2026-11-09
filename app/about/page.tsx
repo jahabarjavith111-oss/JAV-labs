@@ -199,7 +199,7 @@ export default function AboutPage() {
                 href={siteConfig.links.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="group inline-flex items-center gap-2.5 rounded-xl border border-line-2 px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-fg hover:bg-fg hover:text-white"
+                className="group inline-flex items-center gap-2.5 rounded-xl border border-line-2 px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-fg hover:bg-fg hover:text-base"
               >
                 <LinkedinIcon />
                 Connect on LinkedIn

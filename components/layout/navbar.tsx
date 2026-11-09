@@ -112,7 +112,7 @@ export function Navbar() {
             {/* Primary CTA — prominent, high-contrast */}
             <Link
               href="/contact"
-              className="hidden items-center gap-1.5 rounded-full bg-fg px-5 py-2.5 text-sm font-semibold text-white transition-colors duration-200 hover:bg-accent md:inline-flex"
+              className="hidden items-center gap-1.5 rounded-full bg-fg px-5 py-2.5 text-sm font-semibold text-base transition-colors duration-200 hover:bg-accent hover:text-white md:inline-flex"
             >
               Discuss a Project
               <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
@@ -162,7 +162,7 @@ export function Navbar() {
               <li className="mt-1.5">
                 <Link
                   href="/contact"
-                  className="flex items-center justify-center gap-1.5 rounded-2xl bg-fg px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-accent"
+                  className="flex items-center justify-center gap-1.5 rounded-2xl bg-fg px-4 py-2.5 text-sm font-semibold text-base transition-colors hover:bg-accent hover:text-white"
                 >
                   Discuss a Project
                   <ArrowUpRight className="h-4 w-4" aria-hidden="true" />

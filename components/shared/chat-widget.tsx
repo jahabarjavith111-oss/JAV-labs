@@ -226,7 +226,7 @@ export function ChatWidget() {
         aria-expanded={open}
         aria-controls="jav-chat-panel"
         aria-label={open ? "Close chat assistant" : "Open chat assistant"}
-        className="fixed bottom-5 right-5 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-fg text-white shadow-lg transition-colors duration-200 hover:bg-accent motion-reduce:transition-none sm:bottom-6 sm:right-6"
+        className="fixed bottom-5 right-5 z-[70] flex h-14 w-14 items-center justify-center rounded-full bg-fg text-base shadow-lg transition-colors duration-200 hover:bg-accent hover:text-white motion-reduce:transition-none sm:bottom-6 sm:right-6"
       >
         {open ? (
           <X className="h-6 w-6" aria-hidden="true" />
@@ -248,14 +248,14 @@ export function ChatWidget() {
         style={{ height: "min(580px, calc(100dvh - 160px))" }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between gap-3 bg-fg px-4 py-3.5 text-white">
+        <div className="flex items-center justify-between gap-3 bg-ink-2 px-4 py-3.5 text-fg">
           <div className="flex items-center gap-3">
-            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold tracking-wide">
+            <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-accent text-xs font-bold tracking-wide text-white">
               JAV
             </span>
             <div className="leading-tight">
               <p className="text-sm font-semibold">JAV Digital Assistant</p>
-              <p className="text-[11px] text-white/70">
+              <p className="text-[11px] text-fg-2">
                 Answers about services, pricing &amp; process
               </p>
             </div>
@@ -264,7 +264,7 @@ export function ChatWidget() {
             type="button"
             onClick={() => setOpen(false)}
             aria-label="Close chat"
-            className="rounded-full p-1.5 text-white/70 transition-colors hover:bg-white/10 hover:text-white motion-reduce:transition-none"
+            className="rounded-full p-1.5 text-fg-2 transition-colors hover:bg-white/10 hover:text-fg motion-reduce:transition-none"
           >
             <X className="h-4 w-4" aria-hidden="true" />
           </button>
@@ -303,7 +303,7 @@ export function ChatWidget() {
                 key={i}
                 className={`max-w-[85%] whitespace-pre-line px-3.5 py-2.5 text-sm leading-relaxed ${
                   isUser
-                    ? "self-end rounded-2xl rounded-br-md bg-fg text-white"
+                    ? "self-end rounded-2xl rounded-br-md bg-fg text-base"
                     : "flex flex-col gap-1.5 self-start rounded-2xl rounded-tl-md border border-line bg-card text-fg-2"
                 }`}
               >
@@ -363,7 +363,7 @@ export function ChatWidget() {
             type="submit"
             disabled={sending || input.trim().length === 0}
             aria-label="Send message"
-            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-fg text-white transition-colors hover:bg-accent disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-accent text-white transition-colors hover:bg-accent-bright hover:text-base disabled:cursor-not-allowed disabled:opacity-40 motion-reduce:transition-none"
           >
             <ArrowUp className="h-4 w-4" aria-hidden="true" />
           </button>

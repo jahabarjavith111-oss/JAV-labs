@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/home/hero";
+import { AboutIntro } from "@/components/home/about-intro";
 import { FeaturedProjects } from "@/components/home/featured-projects";
 import { ServicesPreview } from "@/components/home/services-preview";
+import { Capabilities } from "@/components/home/capabilities";
 import { Approach } from "@/components/home/approach";
 import { ProcessPreview } from "@/components/home/process-preview";
 import { Pricing } from "@/components/home/pricing";
@@ -43,12 +45,14 @@ export default function HomePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqStructuredData) }}
       />
       <Hero />
-      <FeaturedProjects />
+      <AboutIntro />
       <ServicesPreview />
-      <Approach />
+      <FeaturedProjects />
+      <Capabilities />
       <ProcessPreview />
-      <Pricing />
+      <Approach />
       <FaqSection />
+      <Pricing />
       <FinalCta />
     </>
   );

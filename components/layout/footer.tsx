@@ -15,20 +15,20 @@ export async function Footer() {
     <footer className="border-t border-line bg-elevated">
       {/* Contact CTA banner — compact strip above the footer columns */}
       <div className="shell pt-12 sm:pt-14">
-        <div className="relative overflow-hidden rounded-3xl bg-fg px-8 py-10 text-white sm:px-12 sm:py-11">
+        <div className="edge-glow relative overflow-hidden rounded-3xl border border-line bg-gradient-to-br from-ink-2 via-ink to-ink px-8 py-10 sm:px-12 sm:py-11">
           <div
-            className="glow -top-24 left-1/3 h-64 w-64 bg-accent-bright/50"
+            className="glow -top-24 left-1/3 h-64 w-64 bg-accent-bright/40"
             aria-hidden="true"
           />
           <div className="relative flex flex-col items-start justify-between gap-8 lg:flex-row lg:items-center">
             <div>
-              <h2 className="font-display text-[clamp(24px,3vw,34px)] font-bold leading-[1.1] tracking-[-0.03em] text-balance">
+              <h2 className="font-display text-[clamp(24px,3vw,34px)] font-bold leading-[1.1] tracking-[-0.03em] text-balance text-fg">
                 Have a project in mind?{" "}
                 <span className="serif-accent text-accent-bright">
                   Let&apos;s discuss it.
                 </span>
               </h2>
-              <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-white/70">
+              <p className="mt-2.5 max-w-xl text-sm leading-relaxed text-fg-2">
                 Tell us what you&apos;re building and the problem it solves —
                 you&apos;ll receive an honest assessment and clear next steps.
               </p>
@@ -39,7 +39,7 @@ export async function Footer() {
               </ButtonLink>
               <a
                 href={`mailto:${siteConfig.email}`}
-                className="inline-flex items-center gap-2 rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white/10"
+                className="inline-flex items-center gap-2 rounded-xl border border-line-2 px-5 py-3 text-sm font-semibold text-fg transition-colors hover:border-accent-bright hover:bg-white/5"
               >
                 <Mail className="h-4 w-4" aria-hidden="true" />
                 Email us directly
